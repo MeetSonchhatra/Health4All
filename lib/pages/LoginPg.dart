@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
+import 'package:health4all/pages/LoginM.dart';
+import 'package:health4all/pages/Signup.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginPage extends StatelessWidget {
@@ -71,7 +74,9 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(Signup());
+                  },
                   child: Text('Sign Up')),
               SizedBox(
                 height: 3.h,
@@ -91,7 +96,9 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(LoginM());
+                  },
                   child: Text(
                     'Login',
                     style: TextStyle(color: buttonblue),

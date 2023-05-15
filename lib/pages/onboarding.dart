@@ -103,12 +103,15 @@ class Onboarding extends StatelessWidget {
               },
               child: Container(
                 height: 4.h,
-                width: 30.w,
+                width: 40.w,
                 child: Row(
                   children: [
-                    Text(
-                      "Get Started",
-                      textAlign: TextAlign.start,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Get Started",
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                     SizedBox(
                       width: 4.w,
