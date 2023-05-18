@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/routes.dart';
-import 'package:health4all/pages/LoginPg.dart';
 import 'package:health4all/pages/splashscreen.dart';
 import 'package:sizer/sizer.dart';
 

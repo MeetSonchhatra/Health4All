@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/pages/LoginPg.dart';
-import 'package:awesome_ripple_animation/awesome_ripple_animation.dart';
+
 import 'package:health4all/pages/onboarding.dart';
 import 'package:sizer/sizer.dart';
 import '../consts/colors.dart';
