@@ -1,11 +1,13 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:health4all/pages/Home.dart';
-import 'package:health4all/pages/LoginM.dart';
-import 'package:health4all/pages/Signup.dart';
+import 'package:health4all/pages/Main%20Pages/Home.dart';
+import 'package:health4all/pages/Login/LoginM.dart';
+import 'package:health4all/pages/Login/Signup.dart';
+import 'package:health4all/pages/Main%20Pages/HomeM.dart';
 import 'package:sizer/sizer.dart';
-import '../consts/colors.dart';
+import '../../consts/colors.dart';
 import 'package:quickalert/quickalert.dart';
 
 class OTP extends StatefulWidget {
@@ -24,7 +26,7 @@ class _OTPState extends State<OTP> {
         confirmBtnText: "Welcome",
         confirmBtnColor: Colors.green,
         onConfirmBtnTap: () {
-          Get.to(HomePg());
+          Get.to(const HomePg());
         });
   }
 
@@ -36,11 +38,11 @@ class _OTPState extends State<OTP> {
           elevation: 0,
           backgroundColor: whiteColor,
           leading: IconButton(
-            icon: Icon(Icons.arrow_circle_left),
+            icon: const Icon(Icons.arrow_circle_left),
             color: Colors.black,
             iconSize: 30,
             onPressed: () {
-              Get.to(LoginM());
+              Get.to(const LoginM());
             },
           )),
       body: Container(
@@ -72,7 +74,7 @@ class _OTPState extends State<OTP> {
                   'enter OTP we just sent to your phone number',
                   style: TextStyle(
                     fontSize: 12.sp,
-                    color: Color.fromRGBO(1, 82, 168, 1),
+                    color: const Color.fromRGBO(1, 82, 168, 1),
                   ),
                 )
               ],
@@ -99,11 +101,11 @@ class _OTPState extends State<OTP> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Time Remaining 2:00 minute '),
+                const Text('Time Remaining 2:00 minute '),
                 SizedBox(
                   width: 5.w,
                 ),
-                TextButton(onPressed: () {}, child: Text('Resend'))
+                TextButton(onPressed: () {}, child: const Text('Resend'))
               ],
             ),
             SizedBox(
@@ -111,7 +113,7 @@ class _OTPState extends State<OTP> {
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(300, 44),
+                  minimumSize: const Size(300, 44),
                   backgroundColor: buttonblue,
                   elevation: 0,
                   shape: const RoundedRectangleBorder(
@@ -123,19 +125,19 @@ class _OTPState extends State<OTP> {
                 onPressed: () {
                   showAlert();
                 },
-                child: Text('Verify')),
+                child: const Text('Verify')),
             SizedBox(
               height: 2.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't Have an Account? "),
+                const Text("Don't Have an Account? "),
                 TextButton(
                   onPressed: () {
-                    Get.to(Signup());
+                    Get.to(const Signup());
                   },
-                  child: Text(
+                  child: const Text(
                     'Sign Up',
                     style: TextStyle(color: Color.fromRGBO(1, 82, 168, 1)),
                   ),
@@ -149,7 +151,7 @@ class _OTPState extends State<OTP> {
   }
 
   _textfieldOTP({required bool ft, last}) {
-    return Container(
+    return SizedBox(
       height: 60,
       child: AspectRatio(
         aspectRatio: 0.7,
@@ -159,25 +161,25 @@ class _OTPState extends State<OTP> {
             if (value.length == 1 && last == false) {
               FocusScope.of(context).nextFocus();
             }
-            if (value.length == 0 && ft == false) {
+            if (value.isEmpty && ft == false) {
               FocusScope.of(context).previousFocus();
             }
           },
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          keyboardType: TextInputType.numberWithOptions(),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          keyboardType: const TextInputType.numberWithOptions(),
           maxLength: 1,
           decoration: InputDecoration(
-            counter: Offstage(),
+            counter: const Offstage(),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(width: 2, color: Colors.black12),
+              borderSide: const BorderSide(width: 2, color: Colors.black12),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(width: 2, color: buttonblue),
+              borderSide: const BorderSide(width: 2, color: buttonblue),
             ),
           ),
         ),

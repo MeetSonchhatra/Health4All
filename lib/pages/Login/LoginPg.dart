@@ -1,8 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/LoginM.dart';
-import 'package:health4all/pages/Signup.dart';
+import 'package:health4all/pages/Login/LoginM.dart';
+import 'package:health4all/pages/Login/Signup.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginPage extends StatelessWidget {
@@ -16,56 +18,63 @@ class LoginPage extends StatelessWidget {
         child: Scaffold(
           body: Column(
             children: [
-              Transform.rotate(
-                angle: -50,
-                child: Container(
-                  height: 7.h,
-                  width: 55.w,
-                  margin: EdgeInsets.fromLTRB(76, 70, 76, 10),
-                  decoration: BoxDecoration(
-                    color: lightblue,
+              Stack(
+                children: [
+                  Transform.rotate(
+                    angle: -50,
+                    child: Container(
+                      height: 6.h,
+                      width: 50.w,
+                      margin: const EdgeInsets.fromLTRB(76, 70, 76, 10),
+                      decoration: const BoxDecoration(
+                        color: lightblue,
+                      ),
+                    ).marginOnly(left: 20),
                   ),
-                  child: Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Health",
                         style: TextStyle(
                           fontSize: 20.sp,
+                          fontWeight: FontWeight.w600,
                           fontFamily: 'Roboto',
-                          color: Color.fromRGBO(63, 79, 81, 1),
+                          color: const Color.fromRGBO(63, 79, 81, 1),
                         ),
                       ),
                       Text(
                         "4",
                         style: TextStyle(
                           fontSize: 20.sp,
+                          fontWeight: FontWeight.w600,
                           fontFamily: 'Roboto',
-                          color: Color.fromRGBO(7, 80, 157, 1),
+                          color: const Color.fromRGBO(7, 80, 157, 1),
                         ),
                       ),
                       Text(
                         "All",
                         style: TextStyle(
+                          fontWeight: FontWeight.w600,
                           fontSize: 20.sp,
                           fontFamily: 'Roboto',
-                          color: Color.fromRGBO(63, 79, 81, 1),
+                          color: const Color.fromRGBO(63, 79, 81, 1),
                         ),
                       ),
                     ],
-                  ),
-                ),
+                  ).marginOnly(top: 8.5.h),
+                ],
               ),
               SizedBox(
                 height: 4.h,
               ),
-              Image(image: AssetImage('assets/Login.jpeg')),
+              const Image(image: AssetImage('assets/Login.jpeg')),
               SizedBox(
                 height: 5.h,
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(300, 44),
+                    minimumSize: const Size(300, 44),
                     backgroundColor: buttonblue,
                     elevation: 0,
                     shape: const RoundedRectangleBorder(
@@ -75,9 +84,9 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Get.to(Signup());
+                    Get.to(const Signup());
                   },
-                  child: Text('Sign Up')),
+                  child: const Text('Sign Up')),
               SizedBox(
                 height: 3.h,
               ),
@@ -87,7 +96,7 @@ class LoginPage extends StatelessWidget {
                       width: 2.0,
                       color: buttonblue,
                     ),
-                    minimumSize: Size(300, 44),
+                    minimumSize: const Size(300, 44),
                     backgroundColor: whiteColor,
                     elevation: 0,
                     shape: const RoundedRectangleBorder(
@@ -97,9 +106,9 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Get.to(LoginM());
+                    Get.to(const LoginM());
                   },
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(color: buttonblue),
                   )),

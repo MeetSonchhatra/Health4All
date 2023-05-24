@@ -2,27 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/Cart.dart';
-import 'package:health4all/pages/HomeM.dart';
-import 'package:health4all/pages/More.dart';
-import 'package:health4all/pages/Reports.dart';
+import 'package:health4all/pages/Main%20Pages/Cart.dart';
+import 'package:health4all/pages/Main%20Pages/Home.dart';
+import 'package:health4all/pages/Main%20Pages/HomeM.dart';
+import 'package:health4all/pages/Main%20Pages/More.dart';
+import 'package:health4all/pages/Main%20Pages/Reports.dart';
+import 'package:health4all/pages/Search/Searchlb.dart';
+import 'package:health4all/pages/Search/Searchtst.dart';
+import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
-class HomePg extends StatefulWidget {
-  const HomePg({super.key});
+class Results extends StatefulWidget {
+  const Results({super.key});
 
   @override
-  State<HomePg> createState() => _HomePgState();
+  State<Results> createState() => _ResultsState();
 }
 
 final TextEditingController _searchText = TextEditingController();
 
-class _HomePgState extends State<HomePg> {
+class _ResultsState extends State<Results> {
+  int myIndex = 0;
+  @override
+  bool is_checked = false;
+
+  @override
+  bool is_check = false;
+
   int num = 0;
   var padding = const EdgeInsets.symmetric(horizontal: 18, vertical: 5);
   double gap = 10;
-  int _index = 0;
+  int _index = 1;
   final _pageData = [
     const HomeM(),
     const Report(),
@@ -47,7 +58,7 @@ class _HomePgState extends State<HomePg> {
       appBar: AppBar(
         elevation: 2,
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromRGBO(250, 250, 250, 1),
+        backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
         toolbarHeight: 170,
         flexibleSpace: Stack(
           children: [
@@ -55,10 +66,10 @@ class _HomePgState extends State<HomePg> {
               children: [
                 Container(
                   child: Stack(children: [
-                    Container(
+                    SizedBox(
                       width: 160,
                       child: DropdownButtonFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
                         value: _selectedarea,
                         items: _area
@@ -77,7 +88,7 @@ class _HomePgState extends State<HomePg> {
                           color: buttonblue,
                         ),
                         dropdownColor: lightblue,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Color.fromRGBO(250, 250, 250, 1))),
@@ -88,7 +99,7 @@ class _HomePgState extends State<HomePg> {
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.notifications_none_outlined,
                       color: Colors.black,
                     ).marginOnly(left: 270, top: 20),
@@ -100,9 +111,14 @@ class _HomePgState extends State<HomePg> {
                 Container(
                     child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        "https://cdn5.vectorstock.com/i/1000x1000/98/49/avatar-men-icon-on-a-white-background-vector-31979849.jpg",
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(const Profile());
+                      },
+                      child: const CircleAvatar(
+                        backgroundImage: AssetImage(
+                          "assets/person.png",
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -110,25 +126,29 @@ class _HomePgState extends State<HomePg> {
                     ),
                     Container(
                       width: 280,
-                      color: Color.fromRGBO(250, 250, 250, 1),
+                      color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
+                        readOnly: true,
+                        onTap: () {
+                          Get.to(const Results());
+                        },
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            prefixIcon: Icon(Icons.search),
-                            prefixIconColor: Color.fromRGBO(197, 197, 197, 1),
+                            prefixIcon: const Icon(Icons.search),
+                            prefixIconColor: const Color.fromRGBO(197, 197, 197, 1),
                             hintText: "Search Test or Laboratory",
-                            contentPadding: EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: TextStyle(
+                            contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                            hintStyle: const TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
                                 fontSize: 12),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
-                              borderSide: BorderSide(color: Colors.white),
+                              borderSide: const BorderSide(color: Colors.white),
                             ),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(60),
-                                borderSide: BorderSide(color: Colors.white))),
+                                borderSide: const BorderSide(color: Colors.white))),
                       ),
                     )
                   ],
@@ -138,38 +158,114 @@ class _HomePgState extends State<HomePg> {
           ],
         ),
       ),
-
-      //appBar:_appBar(),
       extendBody: true,
-      body: PageView.builder(
-          itemCount: 4,
-          controller: controller,
-          onPageChanged: (page) {
-            setState(() {
-              _index = page;
-            });
-          },
-          itemBuilder: (context, positions) {
-            return Container(
-              child: _pageData[positions],
-            );
-          }),
-// BOttom nav bar
+      body: Column(
+        children: [
+          SizedBox(
+            height: 2.h,
+          ),
+          Row(
+            children: [
+              const Text(
+                'Report No: ',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromRGBO(14, 13, 18, 1),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Text(
+                'CD1201583',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Color.fromRGBO(30, 59, 141, 1)),
+              ),
+              SizedBox(
+                width: 14.w,
+              ),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.download)),
+              SizedBox(
+                width: 2.w,
+              ),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
+            ],
+          ).marginOnly(left: 40),
+          Card(
+            elevation: 20,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: SizedBox(
+              width: 350,
+              height: 474,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                          height: 60,
+                          width: 60,
+                          child: Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Image.asset('assets/coronavirus.png'))),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      const Text(
+                        "Your Covid test results ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      const Text(
+                        '11:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 12),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 34,
+          ),
+          Expanded(
+              child: SizedBox(
+            height: 250,
+            child: PageView.builder(
+                itemCount: 4,
+                controller: controller,
+                onPageChanged: (page) {
+                  setState(() {
+                    _index = page;
+                  });
+                },
+                itemBuilder: (context, positions) {
+                  return Container(
+                    child: _pageData[positions],
+                  );
+                }),
+          ))
+        ],
+      ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              //  border: Border.all(color: Colors.black, width: 2),
-              color: whiteColor,
-
-              // borderRadius: const BorderRadius.all(Radius.circular(100)),
-              boxShadow: [
-                BoxShadow(
-                  spreadRadius: -10,
-                  blurRadius: 60,
-                  color: Colors.black.withOpacity(0.4),
-                  offset: const Offset(0, 25),
-                )
-              ]),
+          decoration: BoxDecoration(color: whiteColor, boxShadow: [
+            BoxShadow(
+              spreadRadius: -10,
+              blurRadius: 60,
+              color: Colors.black.withOpacity(0.4),
+              offset: const Offset(0, 25),
+            )
+          ]),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GNav(
@@ -187,6 +283,9 @@ class _HomePgState extends State<HomePg> {
                   backgroundColor: buttonblue,
                   iconSize: 24,
                   padding: padding,
+                  onPressed: () {
+                    Get.to(const HomePg());
+                  },
                 ),
                 GButton(
                   gap: gap,
@@ -199,6 +298,9 @@ class _HomePgState extends State<HomePg> {
                   backgroundColor: buttonblue,
                   iconSize: 24,
                   padding: padding,
+                  onPressed: () {
+                    Get.to(const Report());
+                  },
                 ),
                 GButton(
                   gap: gap,

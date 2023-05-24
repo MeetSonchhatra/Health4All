@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:health4all/pages/LoginPg.dart';
+import 'package:health4all/pages/Login/LoginPg.dart';
 
-import 'package:health4all/pages/onboarding.dart';
+import 'package:health4all/pages/Login/onboarding.dart';
 import 'package:sizer/sizer.dart';
-import '../consts/colors.dart';
+import '../../consts/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

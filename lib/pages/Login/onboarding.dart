@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/LoginPg.dart';
+import 'package:health4all/pages/Login/LoginPg.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
 class Onboarding extends StatelessWidget {
@@ -16,7 +17,7 @@ class Onboarding extends StatelessWidget {
         body: Column(
           children: [
             Container(
-                margin: EdgeInsets.fromLTRB(18.5, 92, 18.5, 10),
+                margin: const EdgeInsets.fromLTRB(18.5, 92, 18.5, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -25,7 +26,7 @@ class Onboarding extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24.sp,
                         fontFamily: 'Roboto',
-                        color: Color.fromRGBO(14, 13, 18, 1),
+                        color: const Color.fromRGBO(14, 13, 18, 1),
                       ),
                     ),
                     Text(
@@ -33,13 +34,13 @@ class Onboarding extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24.sp,
                         fontFamily: 'Roboto',
-                        color: Color.fromRGBO(30, 59, 141, 1),
+                        color: const Color.fromRGBO(30, 59, 141, 1),
                       ),
                     ),
                   ],
                 )),
             Container(
-                margin: EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
+                margin: const EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -48,7 +49,7 @@ class Onboarding extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontFamily: 'Roboto',
-                        color: Color.fromRGBO(1, 82, 168, 1),
+                        color: const Color.fromRGBO(1, 82, 168, 1),
                       ),
                     ),
                   ],
@@ -57,7 +58,7 @@ class Onboarding extends StatelessWidget {
               height: 40.h,
             ),
             Container(
-                margin: EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
+                margin: const EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -66,12 +67,12 @@ class Onboarding extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontFamily: 'Roboto',
-                        color: Color.fromRGBO(15, 15, 15, 1),
+                        color: const Color.fromRGBO(15, 15, 15, 1),
                       ),
                     ),
                   ],
                 )),
-            Container(
+            SizedBox(
               height: 10.h,
               width: 55.w,
               child: Text(
@@ -80,7 +81,7 @@ class Onboarding extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontFamily: 'Roboto',
-                  color: Color.fromRGBO(134, 133, 136, 1),
+                  color: const Color.fromRGBO(134, 133, 136, 1),
                 ),
               ),
             ),
@@ -89,7 +90,7 @@ class Onboarding extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(170, 44),
+                minimumSize: const Size(170, 44),
                 backgroundColor: buttonblue,
                 elevation: 0,
                 shape: const RoundedRectangleBorder(
@@ -101,13 +102,13 @@ class Onboarding extends StatelessWidget {
               onPressed: () {
                 Get.to(const LoginPage());
               },
-              child: Container(
+              child: SizedBox(
                 height: 4.h,
                 width: 40.w,
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Get Started",
                         textAlign: TextAlign.start,
@@ -116,8 +117,8 @@ class Onboarding extends StatelessWidget {
                     SizedBox(
                       width: 4.w,
                     ),
-                    Icon(
-                      Icons.arrow_right_alt_sharp,
+                    const Icon(
+                      LineIcons.arrowRight,
                       size: 29.0,
                     )
                   ],

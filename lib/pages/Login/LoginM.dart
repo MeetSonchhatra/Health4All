@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/LoginPg.dart';
-import 'package:health4all/pages/OTP.dart';
-import 'package:health4all/pages/Signup.dart';
+import 'package:health4all/pages/Login/LoginPg.dart';
+import 'package:health4all/pages/Login/OTP.dart';
+import 'package:health4all/pages/Login/Signup.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginM extends StatefulWidget {
@@ -24,11 +24,11 @@ class _LoginMState extends State<LoginM> {
           elevation: 0,
           backgroundColor: whiteColor,
           leading: IconButton(
-            icon: Icon(Icons.arrow_circle_left),
+            icon: const Icon(Icons.arrow_circle_left),
             color: Colors.black,
             iconSize: 30,
             onPressed: () {
-              Get.to(LoginPage());
+              Get.to(const LoginPage());
             },
           )),
       body: Container(
@@ -42,7 +42,7 @@ class _LoginMState extends State<LoginM> {
               Text(
                 "Login",
                 style: TextStyle(
-                  color: Color.fromRGBO(51, 51, 51, 1),
+                  color: const Color.fromRGBO(51, 51, 51, 1),
                   fontSize: 20.sp,
                 ),
               )
@@ -53,7 +53,7 @@ class _LoginMState extends State<LoginM> {
               Text(
                 "to your HealthBuddy Account",
                 style: TextStyle(
-                  color: Color.fromRGBO(1, 82, 168, 1),
+                  color: const Color.fromRGBO(1, 82, 168, 1),
                   fontSize: 13.sp,
                 ),
               )
@@ -91,18 +91,18 @@ class _LoginMState extends State<LoginM> {
             height: 1.h,
           ),
           TextFormField(
-            keyboardType: TextInputType.numberWithOptions(),
+            keyboardType: const TextInputType.numberWithOptions(),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
               FilteringTextInputFormatter.digitsOnly
             ],
             decoration: InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 hintText: "Phone number",
-                hintStyle: TextStyle(color: buttonblue),
+                hintStyle: const TextStyle(color: buttonblue),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(color: buttonblue))),
+                    borderSide: const BorderSide(color: buttonblue))),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Phone number cannot be null';
@@ -133,7 +133,7 @@ class _LoginMState extends State<LoginM> {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(300, 44),
+                minimumSize: const Size(300, 44),
                 backgroundColor: buttonblue,
                 elevation: 0,
                 shape: const RoundedRectangleBorder(
@@ -143,20 +143,20 @@ class _LoginMState extends State<LoginM> {
                 ),
               ),
               onPressed: () {
-                Get.to(OTP());
+                Get.to(const OTP());
               },
-              child: Text('Generate OTP')),
+              child: const Text('Generate OTP')),
           SizedBox(
             height: 4.h,
           ),
           Row(
             children: [
-              Text("Don't Have an Account? "),
+              const Text("Don't Have an Account? "),
               TextButton(
                 onPressed: () {
-                  Get.to(Signup());
+                  Get.to(const Signup());
                 },
-                child: Text(
+                child: const Text(
                   'Sign Up',
                   style: TextStyle(color: Color.fromRGBO(1, 82, 168, 1)),
                 ),

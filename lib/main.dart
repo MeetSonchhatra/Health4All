@@ -1,7 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/routes.dart';
-import 'package:health4all/pages/splashscreen.dart';
+import 'package:health4all/pages/Login/splashscreen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_types_as_parameter_names
     return Sizer(builder: (BuildContext, Orientation, DeviceType) {
       return GetMaterialApp(
         home: const SplashScreen(),
