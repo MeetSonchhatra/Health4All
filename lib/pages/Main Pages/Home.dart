@@ -52,17 +52,17 @@ class _HomePgState extends State<HomePg> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
                 Stack(children: [
                   SizedBox(
-                    width: 160,
+                    width: 40.w,
                     child: DropdownButtonFormField(
-                      style: const TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
                       value: _selectedarea,
                       items: _area
                           .map((e) => DropdownMenuItem(
@@ -80,13 +80,13 @@ class _HomePgState extends State<HomePg> {
                         color: buttonblue,
                       ),
                       dropdownColor: lightblue,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(250, 250, 250, 1))),
                         labelText: "Location",
                         labelStyle: TextStyle(
-                            fontSize: 10,
+                            fontSize: 8.sp,
                             color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
@@ -97,8 +97,8 @@ class _HomePgState extends State<HomePg> {
                       Get.to(const Notifications());
                     },
                     color: Colors.black,
-                  ).marginOnly(left: 270, top: 20),
-                ]).marginOnly(left: 0, top: 20),
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -107,6 +107,9 @@ class _HomePgState extends State<HomePg> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -119,7 +122,7 @@ class _HomePgState extends State<HomePg> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
@@ -135,9 +138,9 @@ class _HomePgState extends State<HomePg> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -149,27 +152,72 @@ class _HomePgState extends State<HomePg> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
         ),
       ),
       extendBody: true,
-      body: PageView.builder(
-          itemCount: 4,
-          controller: controller,
-          onPageChanged: (page) {
-            setState(() {
-              _index = page;
-            });
-          },
-          itemBuilder: (context, positions) {
-            return Container(
-              child: _pageData[positions],
-            );
-          }),
-// BOttom nav bar
+      body:
+          // Navigator(
+          //   onGenerateRoute: (RouteSettings setting){
+          //     return MaterialPageRoute(builder: (BuildContext context){
+          //       if(setting.name == Profile()){
+          //         return Profile()
+          //       }
+          //     })
+          //   },
+          // )
+          // IndexedStack(
+          //     index: _index,
+          //     children: _pageData,
+          //   ),
+          // Stack(
+          //     children: [
+          //       Offstage(
+          //         offstage: _index != 0,
+          //         child: const HomeM(),
+          //       ),
+          //       Offstage(
+          //         offstage: _index == 0,
+          //         child: IndexedStack(
+          //           index: _index - 1,
+          //           children: _pageData,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // PageVie
+          // Stack(
+          //     children: [
+          //       Offstage(
+          //         offstage: _index != 0,
+          //         child: const HomeM(),
+          //       ),
+          //       Offstage(
+          //         offstage: _index == 0,
+          //         child: IndexedStack(
+          //           index: _index - 1,
+          //           children: _pageData,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+
+          PageView.builder(
+              itemCount: 4,
+              controller: controller,
+              onPageChanged: (page) {
+                setState(() {
+                  _index = page;
+                });
+              },
+              itemBuilder: (context, positions) {
+                return Container(
+                  child: _pageData[positions],
+                );
+              }),
       bottomNavigationBar: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -209,7 +257,7 @@ class _HomePgState extends State<HomePg> {
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'Reports',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,
@@ -221,7 +269,7 @@ class _HomePgState extends State<HomePg> {
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'My Cart',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,
@@ -229,11 +277,11 @@ class _HomePgState extends State<HomePg> {
                 ),
                 GButton(
                   gap: gap,
-                  icon: LineIcons.addressBookAlt,
+                  icon: Icons.more_horiz,
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'More',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,

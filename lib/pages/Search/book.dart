@@ -10,6 +10,9 @@ import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Main Pages/Main Extra/Notifications.dart';
+import 'Search.dart';
+
 class Book extends StatefulWidget {
   const Book({super.key});
 
@@ -57,52 +60,53 @@ class _BookState extends State<Book> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
-                Container(
-                  child: Stack(children: [
-                    Container(
-                      width: 160,
-                      child: DropdownButtonFormField(
-                        style: const TextStyle(
-                            fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
-                        value: _selectedarea,
-                        items: _area
-                            .map((e) => DropdownMenuItem(
-                                  child: Text(e),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _selectedarea = val as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: buttonblue,
-                        ),
-                        dropdownColor: lightblue,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(250, 250, 250, 1))),
-                          labelText: "Location",
-                          labelStyle: TextStyle(
-                              fontSize: 10,
-                              color: Color.fromRGBO(197, 197, 197, 1)),
-                        ),
+                Stack(children: [
+                  SizedBox(
+                    width: 40.w,
+                    child: DropdownButtonFormField(
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
+                      value: _selectedarea,
+                      items: _area
+                          .map((e) => DropdownMenuItem(
+                                child: Text(e),
+                                value: e,
+                              ))
+                          .toList(),
+                      onChanged: (val) {
+                        setState(() {
+                          _selectedarea = val as String;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_drop_down,
+                        color: buttonblue,
+                      ),
+                      dropdownColor: lightblue,
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(250, 250, 250, 1))),
+                        labelText: "Location",
+                        labelStyle: TextStyle(
+                            fontSize: 8.sp,
+                            color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
-                    const Icon(
-                      Icons.notifications_none_outlined,
-                      color: Colors.black,
-                    ).marginOnly(left: 270, top: 20),
-                  ]),
-                ).marginOnly(left: 0, top: 20),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications_none_outlined),
+                    onPressed: () {
+                      Get.to(const Notifications());
+                    },
+                    color: Colors.black,
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -111,6 +115,9 @@ class _BookState extends State<Book> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -123,12 +130,12 @@ class _BookState extends State<Book> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
                         onTap: () {
-                          Get.to(const Book());
+                          Get.to(const Search());
                         },
                         decoration: InputDecoration(
                             filled: true,
@@ -139,9 +146,9 @@ class _BookState extends State<Book> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -153,7 +160,7 @@ class _BookState extends State<Book> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -174,8 +181,8 @@ class _BookState extends State<Book> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 245,
-                    width: 358,
+                    height: 27.78.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -183,8 +190,8 @@ class _BookState extends State<Book> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -197,49 +204,49 @@ class _BookState extends State<Book> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
                             ),
                             Container(
-                              height: 20,
-                              width: 32,
+                              height: 2.26.sp,
+                              width: 8.w,
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 165, left: 45)
+                  ).marginOnly(top: 18.7.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -251,8 +258,8 @@ class _BookState extends State<Book> {
                       bottomRight: Radius.circular(15))),
               child: Container(
                 padding: const EdgeInsets.all(0),
-                height: 500,
-                width: 301,
+                height: 56.69.h,
+                width: 78.w,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
@@ -268,17 +275,17 @@ class _BookState extends State<Book> {
                           width: 4.w,
                         ),
                         SizedBox(
-                          height: 46,
-                          width: 278,
-                          child: const Text(
+                          height: 5.21.h,
+                          width: 70.w,
+                          child: Text(
                             "Covid-19 Virus Qualitative Pcr Throat Swab ",
                             // overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: TextStyle(
                                 color: Color.fromRGBO(7, 32, 60, 1),
-                                fontSize: 20,
+                                fontSize: 15.6.sp,
                                 fontWeight: FontWeight.w500),
-                          ).marginOnly(left: 20),
+                          ).marginOnly(left: 5.w),
                         ),
                       ],
                     ),
@@ -291,17 +298,17 @@ class _BookState extends State<Book> {
                           width: 4.w,
                         ),
                         SizedBox(
-                          height: 28,
-                          width: 278,
-                          child: const Text(
+                          height: 3.2.h,
+                          width: 70.w,
+                          child: Text(
                             "Also Know as Covid-19 Virus qualitative pcr Throat Swab  ",
                             // overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: TextStyle(
                                 color: Color.fromRGBO(30, 59, 141, 1),
-                                fontSize: 12,
+                                fontSize: 9.sp,
                                 fontWeight: FontWeight.w400),
-                          ).marginOnly(left: 20),
+                          ).marginOnly(left: 5.w),
                         ),
                       ],
                     ),
@@ -328,15 +335,15 @@ class _BookState extends State<Book> {
                         SizedBox(
                           width: 3.w,
                         ),
-                        const Text(
+                        Text(
                           'Certified Labs',
                           style: TextStyle(
                               color: buttonblue,
                               fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                              fontSize: 14.sp),
                         )
                       ],
-                    ).marginOnly(left: 20),
+                    ).marginOnly(left: 5.w),
                     SizedBox(
                       height: 2.h,
                     ),
@@ -353,15 +360,15 @@ class _BookState extends State<Book> {
                         SizedBox(
                           width: 3.w,
                         ),
-                        const Text(
+                        Text(
                           'Free Home Sample Pickup',
                           style: TextStyle(
                               color: buttonblue,
                               fontWeight: FontWeight.w500,
-                              fontSize: 16),
+                              fontSize: 12.4.sp),
                         )
                       ],
-                    ).marginOnly(left: 20),
+                    ).marginOnly(left: 5.w),
                     SizedBox(
                       height: 2.h,
                     ),
@@ -378,15 +385,15 @@ class _BookState extends State<Book> {
                         SizedBox(
                           width: 3.w,
                         ),
-                        const Text(
+                        Text(
                           'E-Reports in 3 day',
                           style: TextStyle(
                               color: buttonblue,
                               fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                              fontSize: 14.sp),
                         )
                       ],
-                    ).marginOnly(left: 20),
+                    ).marginOnly(left: 5.w),
                     SizedBox(
                       height: 1.h,
                     ),
@@ -399,12 +406,12 @@ class _BookState extends State<Book> {
                         SizedBox(
                           width: 8.w,
                         ),
-                        const Text(
+                        Text(
                           'Choose a Time slot ',
                           style: TextStyle(
                               color: Color.fromRGBO(4, 6, 60, 1),
                               fontWeight: FontWeight.w500,
-                              fontSize: 16),
+                              fontSize: 12.4.sp),
                         ),
                         SizedBox(
                           width: 20.w,
@@ -419,7 +426,7 @@ class _BookState extends State<Book> {
                       decoration: InputDecoration(
                           hintText: 'Time for test ',
                           contentPadding:
-                              const EdgeInsets.only(left: 40, top: 4),
+                              EdgeInsets.only(left: 10.w, top: 0.38.h),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                               borderSide: const BorderSide(
@@ -435,7 +442,7 @@ class _BookState extends State<Book> {
                         name = value;
                         setState(() {});
                       },
-                    ).paddingSymmetric(horizontal: 35, vertical: 2),
+                    ).paddingSymmetric(horizontal: 8.14.w, vertical: 0.3.h),
                     SizedBox(
                       height: 1.h,
                     ),
@@ -451,21 +458,21 @@ class _BookState extends State<Book> {
                         SizedBox(
                           width: 8.w,
                         ),
-                        const Text(
+                        Text(
                           'Rs 999/-',
                           style: TextStyle(
                               color: Color.fromRGBO(7, 32, 60, 1),
-                              fontSize: 20,
+                              fontSize: 15.6.sp,
                               fontWeight: FontWeight.w600),
                         ),
                         SizedBox(
-                          width: 1.w,
+                          width: 3.w,
                         ),
-                        const Text(
+                        Text(
                           '+15% Health Cashback',
                           style: TextStyle(
                               color: Color.fromRGBO(27, 195, 154, 1),
-                              fontSize: 16,
+                              fontSize: 12.4.sp,
                               fontWeight: FontWeight.w400),
                         )
                       ],
@@ -491,9 +498,10 @@ class _BookState extends State<Book> {
                               ),
                             ),
                             onPressed: () {},
-                            child: const Text(
+                            child: Text(
                               'Add to Cart',
-                              style: TextStyle(color: buttonblue, fontSize: 16),
+                              style: TextStyle(
+                                  color: buttonblue, fontSize: 12.4.sp),
                             )),
                         SizedBox(
                           width: 8.w,
@@ -510,18 +518,18 @@ class _BookState extends State<Book> {
                               ),
                             ),
                             onPressed: () {},
-                            child: const Text(
+                            child: Text(
                               'Book Now',
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 12.4.sp),
                             )),
                       ],
-                    ).marginOnly(left: 20),
+                    ).marginOnly(left: 5.w),
                   ],
                 ),
               ),
-            ).marginOnly(left: 28, right: 27, top: 0),
-            const SizedBox(
-              height: 100,
+            ).marginOnly(left: 7.w, right: 7.w, top: 0),
+            SizedBox(
+              height: 11.34.h,
             )
           ],
         ),

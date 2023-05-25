@@ -29,19 +29,19 @@ class MorePg extends StatelessWidget {
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: 54,
-                width: 358,
+                height: 6.2.h,
+                width: 83.w,
                 child: Row(
                   children: [
                     SizedBox(
                       width: 2.5.w,
                     ),
-                    const Text(
+                    Text(
                       "Track your Report",
                       style: TextStyle(
                         color: fontblue2,
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: 12.4.sp,
                       ),
                     ),
                     SizedBox(

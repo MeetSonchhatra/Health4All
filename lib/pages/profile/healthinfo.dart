@@ -44,8 +44,8 @@ class _HealthInfoState extends State<HealthInfo> {
                   child: Stack(
                     children: [
                       Container(
-                        width: 130,
-                        height: 130,
+                        width: 30.25.w,
+                        height: 14.75.h,
                         decoration: BoxDecoration(
                             border: Border.all(width: 4, color: whiteColor),
                             boxShadow: const [
@@ -64,8 +64,8 @@ class _HealthInfoState extends State<HealthInfo> {
                         bottom: 0,
                         right: 0,
                         child: Container(
-                          height: 40,
-                          width: 40,
+                          height: 4.54.h,
+                          width: 10.w,
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               // border: Border.all(
@@ -85,10 +85,10 @@ class _HealthInfoState extends State<HealthInfo> {
                 ),
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       'Health Information',
                       style: TextStyle(
-                          fontSize: 16, color: Color.fromRGBO(5, 27, 98, 1)),
+                          fontSize: 12.4.sp, color: Color.fromRGBO(5, 27, 98, 1)),
                     ).marginOnly(left: 20),
                     SizedBox(
                       width: 29.w,
@@ -117,7 +117,7 @@ class _HealthInfoState extends State<HealthInfo> {
                             SizedBox(
                               width: 2.w,
                             ),
-                            const Text(
+                            Text(
                               'Edit',
                               style: TextStyle(fontSize: 12),
                             )
@@ -135,15 +135,15 @@ class _HealthInfoState extends State<HealthInfo> {
                       color: Color.fromRGBO(197, 197, 197, 1),
                     ),
                     SizedBox(width: 5.w),
-                    const Text(
+                    Text(
                       "Health Condition",
                       style: TextStyle(
                         color: Color.fromRGBO(197, 197, 197, 1),
-                        fontSize: 16,
+                        fontSize: 12.4.sp,
                       ),
                     )
                   ],
-                ).marginOnly(left: 40),
+                ).marginOnly(left: 10.w),
                 SizedBox(
                   height: 1.h,
                 ),
@@ -153,16 +153,16 @@ class _HealthInfoState extends State<HealthInfo> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Container(
-                    height: 50,
-                    width: 350,
+                    height: 5.95.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Text(
+                        Text(
                           'Cody Fisher',
                           style: TextStyle(
                               color: Color.fromRGBO(63, 81, 81, 1),
-                              fontSize: 16),
-                        ).marginOnly(left: 40)
+                              fontSize: 12.4.sp),
+                        ).marginOnly(left: 10.w)
                       ],
                     ),
                   ),
@@ -177,15 +177,15 @@ class _HealthInfoState extends State<HealthInfo> {
                       color: Color.fromRGBO(197, 197, 197, 1),
                     ),
                     SizedBox(width: 5.w),
-                    const Text(
+                    Text(
                       "Blood Group",
                       style: TextStyle(
                         color: Color.fromRGBO(197, 197, 197, 1),
-                        fontSize: 16,
+                        fontSize: 12.4.sp,
                       ),
                     )
                   ],
-                ).marginOnly(left: 40),
+                ).marginOnly(left: 10.w),
                 SizedBox(
                   height: 1.h,
                 ),
@@ -195,16 +195,16 @@ class _HealthInfoState extends State<HealthInfo> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Container(
-                    height: 50,
-                    width: 350,
+                    height: 5.95.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Text(
+                        Text(
                           'cody.fisher@gmail.com',
                           style: TextStyle(
                               color: Color.fromRGBO(63, 81, 81, 1),
-                              fontSize: 16),
-                        ).marginOnly(left: 40)
+                              fontSize: 12.4.sp),
+                        ).marginOnly(left: 10.w)
                       ],
                     ),
                   ),
@@ -230,9 +230,9 @@ class _HealthInfoState extends State<HealthInfo> {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
+                        child: Text(
                           'Cancel',
-                          style: TextStyle(color: buttonblue, fontSize: 16),
+                          style: TextStyle(color: buttonblue, fontSize: 12.4.sp),
                         )),
                     SizedBox(
                       width: 8.w,
@@ -249,12 +249,12 @@ class _HealthInfoState extends State<HealthInfo> {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
+                        child: Text(
                           'Save Changes',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 12.4.sp),
                         )),
                   ],
-                ).marginOnly(left: 40),
+                ).marginOnly(left: 10.w),
                 SizedBox(
                   height: 3.h,
                 ),

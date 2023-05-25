@@ -64,7 +64,8 @@ class _GenInfoState extends State<GenInfo> {
               onPressed: () {
                 Get.to(const Profile());
               },
-            )),
+            )
+            ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -72,8 +73,8 @@ class _GenInfoState extends State<GenInfo> {
                 child: Stack(
                   children: [
                     Container(
-                      width: 130,
-                      height: 130,
+                      width: 30.25.w,
+                      height: 14.75.h,
                       decoration: BoxDecoration(
                           border: Border.all(width: 4, color: whiteColor),
                           boxShadow: const [
@@ -92,8 +93,8 @@ class _GenInfoState extends State<GenInfo> {
                       bottom: 0,
                       right: 0,
                       child: Container(
-                        height: 40,
-                        width: 40,
+                        height: 4.54.h,
+                        width: 10.w,
                         decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             // border: Border.all(
@@ -113,17 +114,17 @@ class _GenInfoState extends State<GenInfo> {
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'General Information',
                     style: TextStyle(
-                        fontSize: 16, color: Color.fromRGBO(5, 27, 98, 1)),
-                  ).marginOnly(left: 20),
+                        fontSize: 12.4.sp, color: Color.fromRGBO(5, 27, 98, 1)),
+                  ).marginOnly(left: 5.w),
                   SizedBox(
                     width: 29.w,
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(25, 25),
+                        minimumSize: Size(6.25.w, 3.h),
                         side: const BorderSide(width: 1, color: Colors.white),
                         backgroundColor: buttonblue,
                         elevation: 0,
@@ -145,9 +146,9 @@ class _GenInfoState extends State<GenInfo> {
                           SizedBox(
                             width: 2.w,
                           ),
-                          const Text(
+                          Text(
                             'Edit',
-                            style: TextStyle(fontSize: 12),
+                            style: TextStyle(fontSize: 9.sp),
                           )
                         ],
                       )),
@@ -163,15 +164,15 @@ class _GenInfoState extends State<GenInfo> {
                     color: Color.fromRGBO(197, 197, 197, 1),
                   ),
                   SizedBox(width: 5.w),
-                  const Text(
+                  Text(
                     "Name",
                     style: TextStyle(
                       color: Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -181,15 +182,16 @@ class _GenInfoState extends State<GenInfo> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SizedBox(
-                  height: 50,
-                  width: 350,
+                  height: 5.95.h,
+                  width: 90.w,
                   child: Row(
                     children: [
-                      const Text(
+                      Text(
                         'Cody Fisher',
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1), fontSize: 16),
-                      ).marginOnly(left: 40)
+                            color: Color.fromRGBO(63, 81, 81, 1),
+                            fontSize: 12.4.sp),
+                      ).marginOnly(left: 10.w)
                     ],
                   ),
                 ),
@@ -204,15 +206,15 @@ class _GenInfoState extends State<GenInfo> {
                     color: Color.fromRGBO(197, 197, 197, 1),
                   ),
                   SizedBox(width: 5.w),
-                  const Text(
+                  Text(
                     "Email",
                     style: TextStyle(
                       color: Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -222,15 +224,16 @@ class _GenInfoState extends State<GenInfo> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SizedBox(
-                  height: 50,
-                  width: 350,
+                  height: 5.95.h,
+                  width: 90.w,
                   child: Row(
                     children: [
-                      const Text(
+                      Text(
                         'cody.fisher@gmail.com',
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1), fontSize: 16),
-                      ).marginOnly(left: 40)
+                            color: Color.fromRGBO(63, 81, 81, 1),
+                            fontSize: 12.4.sp),
+                      ).marginOnly(left: 10.w)
                     ],
                   ),
                 ),
@@ -245,15 +248,15 @@ class _GenInfoState extends State<GenInfo> {
                     color: Color.fromRGBO(197, 197, 197, 1),
                   ),
                   SizedBox(width: 5.w),
-                  const Text(
+                  Text(
                     "Mobile Number",
                     style: TextStyle(
                       color: Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -263,15 +266,16 @@ class _GenInfoState extends State<GenInfo> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SizedBox(
-                  height: 50,
-                  width: 350,
+                  height: 5.95.h,
+                  width: 90.w,
                   child: Row(
                     children: [
-                      const Text(
+                      Text(
                         '9512658789',
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1), fontSize: 16),
-                      ).marginOnly(left: 40)
+                            color: Color.fromRGBO(63, 81, 81, 1),
+                            fontSize: 12.4.sp),
+                      ).marginOnly(left: 10.w)
                     ],
                   ),
                 ),
@@ -286,15 +290,15 @@ class _GenInfoState extends State<GenInfo> {
                     color: Color.fromRGBO(197, 197, 197, 1),
                   ),
                   SizedBox(width: 5.w),
-                  const Text(
+                  Text(
                     "Address",
                     style: TextStyle(
                       color: Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -304,22 +308,22 @@ class _GenInfoState extends State<GenInfo> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SizedBox(
-                  height: 92,
-                  width: 350,
+                  height: 10.43.h,
+                  width: 90.w,
                   child: Row(
                     children: [
                       SizedBox(
-                        height: 80,
-                        width: 250,
-                        child: const Text(
+                        height: 9.01.h,
+                        width: 62.5.w,
+                        child: Text(
                           "B-20, Indrapasth gulmor, near ITC narmada,132 ft ring road, Vastrapur, Ahmedabad.",
                           // overflow: TextOverflow.ellipsis,
                           maxLines: 3,
                           style: TextStyle(
                               color: Color.fromRGBO(63, 81, 81, 1),
-                              fontSize: 16),
-                        ).marginOnly(left: 20),
-                      ).paddingOnly(left: 20, top: 2.h)
+                              fontSize: 12.4.sp),
+                        ).marginOnly(left: 5.w),
+                      ).paddingOnly(left: 5.w, top: 2.h)
                     ],
                   ),
                 ),
@@ -342,7 +346,7 @@ class _GenInfoState extends State<GenInfo> {
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -354,7 +358,7 @@ class _GenInfoState extends State<GenInfo> {
                         ? 'Select a date  ->'
                         : formatter.format(_selectedDate!),
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 12.4.sp,
                     ),
                   ),
                   SizedBox(
@@ -369,7 +373,7 @@ class _GenInfoState extends State<GenInfo> {
                     onPressed: _presentdatepicker,
                   ),
                 ],
-              ).marginOnly(left: 50),
+              ).marginOnly(left: 12.5.w),
               SizedBox(
                 height: 2.h,
               ),
@@ -384,11 +388,11 @@ class _GenInfoState extends State<GenInfo> {
                     "City ",
                     style: TextStyle(
                       color: const Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 14.sp,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -415,7 +419,7 @@ class _GenInfoState extends State<GenInfo> {
                         borderRadius: BorderRadius.circular(50),
                         borderSide: const BorderSide(
                             color: Color.fromRGBO(197, 197, 197, 1)))),
-              ).paddingSymmetric(horizontal: 35, vertical: 2),
+              ).paddingSymmetric(horizontal: 8.14.w, vertical: 0.23.h),
               SizedBox(
                 height: 2.h,
               ),
@@ -430,11 +434,11 @@ class _GenInfoState extends State<GenInfo> {
                     "Pincode",
                     style: TextStyle(
                       color: const Color.fromRGBO(197, 197, 197, 1),
-                      fontSize: 14.sp,
+                      fontSize: 12.4.sp,
                     ),
                   )
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 1.h,
               ),
@@ -461,7 +465,7 @@ class _GenInfoState extends State<GenInfo> {
                         borderRadius: BorderRadius.circular(50),
                         borderSide: const BorderSide(
                             color: Color.fromRGBO(197, 197, 197, 1)))),
-              ).paddingSymmetric(horizontal: 35, vertical: 2),
+              ).paddingSymmetric(horizontal: 8.14.w, vertical: 0.23.h),
               SizedBox(
                 height: 2.h,
               ),
@@ -483,9 +487,9 @@ class _GenInfoState extends State<GenInfo> {
                         ),
                       ),
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         'Cancel',
-                        style: TextStyle(color: buttonblue, fontSize: 16),
+                        style: TextStyle(color: buttonblue, fontSize: 12.4.sp),
                       )),
                   SizedBox(
                     width: 8.w,
@@ -502,12 +506,12 @@ class _GenInfoState extends State<GenInfo> {
                         ),
                       ),
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         'Save Changes',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 12.4.sp),
                       )),
                 ],
-              ).marginOnly(left: 40),
+              ).marginOnly(left: 10.w),
               SizedBox(
                 height: 3.h,
               ),

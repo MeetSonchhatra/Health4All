@@ -12,17 +12,17 @@ class Popular extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: buttonblue,
-        title: const Text(
+        title: Text(
           'Your Recent Test',
-          style: TextStyle(color: whiteColor, fontSize: 16),
+          style: TextStyle(color: whiteColor, fontSize: 12.4.sp),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 110,
-              width: 350,
+              height: 12.48.h,
+              width: 90.w,
               decoration: BoxDecoration(
                   image: const DecorationImage(
                       image: NetworkImage(
@@ -33,8 +33,8 @@ class Popular extends StatelessWidget {
               height: 2.h,
             ),
             Container(
-              height: 110,
-              width: 350,
+              height: 12.48.h,
+              width: 90.w,
               decoration: BoxDecoration(
                   image: const DecorationImage(image: AssetImage("assets/pop.png")),
                   borderRadius: BorderRadius.circular(15)),
@@ -43,8 +43,8 @@ class Popular extends StatelessWidget {
               height: 2.h,
             ),
             Container(
-              height: 110,
-              width: 350,
+              height: 12.48.h,
+              width: 90.w,
               decoration: BoxDecoration(
                   image: const DecorationImage(
                       image: NetworkImage(
@@ -55,8 +55,8 @@ class Popular extends StatelessWidget {
               height: 2.h,
             ),
             Container(
-              height: 110,
-              width: 350,
+              height: 12.48.h,
+              width: 90.w,
               decoration: BoxDecoration(
                   image: const DecorationImage(image: AssetImage("assets/pop.png")),
                   borderRadius: BorderRadius.circular(15)),

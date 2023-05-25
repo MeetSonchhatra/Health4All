@@ -52,17 +52,17 @@ class _Track1State extends State<Track1> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
                 Stack(children: [
                   SizedBox(
-                    width: 160,
+                    width: 40.w,
                     child: DropdownButtonFormField(
-                      style: const TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
                       value: _selectedarea,
                       items: _area
                           .map((e) => DropdownMenuItem(
@@ -80,13 +80,13 @@ class _Track1State extends State<Track1> {
                         color: buttonblue,
                       ),
                       dropdownColor: lightblue,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(250, 250, 250, 1))),
                         labelText: "Location",
                         labelStyle: TextStyle(
-                            fontSize: 10,
+                            fontSize: 8.sp,
                             color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
@@ -97,8 +97,8 @@ class _Track1State extends State<Track1> {
                       Get.to(const Notifications());
                     },
                     color: Colors.black,
-                  ).marginOnly(left: 270, top: 20),
-                ]).marginOnly(left: 0, top: 20),
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -107,6 +107,9 @@ class _Track1State extends State<Track1> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -119,7 +122,7 @@ class _Track1State extends State<Track1> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
@@ -135,9 +138,9 @@ class _Track1State extends State<Track1> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -149,7 +152,7 @@ class _Track1State extends State<Track1> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -165,8 +168,8 @@ class _Track1State extends State<Track1> {
             Stack(
               children: [
                 Container(
-                  height: 436,
-                  width: 509,
+                  height: 49.44.h,
+                  width: 127.25.w,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/Map2.png"),
@@ -184,8 +187,8 @@ class _Track1State extends State<Track1> {
                       decoration: const BoxDecoration(
                         color: whiteColor,
                       ),
-                      height: 254,
-                      width: 430,
+                      height: 59.h,
+                      width: 107.25.w,
                       child: Column(
                         children: [
                           SizedBox(
@@ -193,19 +196,20 @@ class _Track1State extends State<Track1> {
                           ),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Your Test is on the Way',
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ).marginOnly(left: 20),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500),
+                              ).marginOnly(left: 5.w),
                             ],
                           ),
                           SizedBox(
                             height: 1.h,
                           ),
                           SizedBox(
-                            height: 130,
-                            width: 350,
+                            height: 14.74.h,
+                            width: 90.w,
                             child: Row(
                               children: [
                                 Expanded(
@@ -217,10 +221,11 @@ class _Track1State extends State<Track1> {
                                             height: 0.5.h,
                                           ),
                                           Row(
-                                            children: const [
+                                            children: [
                                               Text(
                                                 'ETA: 9:00 AM',
                                                 style: TextStyle(
+                                                    fontSize: 11.14.sp,
                                                     color: Color.fromRGBO(
                                                         255, 194, 44, 1)),
                                               )
@@ -230,10 +235,10 @@ class _Track1State extends State<Track1> {
                                             height: 1.5.h,
                                           ),
                                           Row(
-                                            children: const [
+                                            children: [
                                               SizedBox(
-                                                height: 30,
-                                                width: 220,
+                                                height: 3.4.h,
+                                                width: 55.w,
                                                 child: Text(
                                                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                                                   maxLines: 2,
@@ -244,7 +249,7 @@ class _Track1State extends State<Track1> {
                                                           134, 133, 136, 1),
                                                       fontWeight:
                                                           FontWeight.w400,
-                                                      fontSize: 10),
+                                                      fontSize: 7.5.sp),
                                                 ),
                                               ),
                                             ],
@@ -253,12 +258,12 @@ class _Track1State extends State<Track1> {
                                             height: 3.h,
                                           ),
                                           Row(
-                                            children: const [
+                                            children: [
                                               Text(
                                                 'PIN:',
                                                 style: TextStyle(
                                                     color: Colors.black,
-                                                    fontSize: 16,
+                                                    fontSize: 12.4.sp,
                                                     fontWeight:
                                                         FontWeight.w500),
                                               ),
@@ -267,7 +272,7 @@ class _Track1State extends State<Track1> {
                                                 style: TextStyle(
                                                     color: Color.fromRGBO(
                                                         1, 82, 168, 1),
-                                                    fontSize: 16,
+                                                    fontSize: 12.4.sp,
                                                     fontWeight:
                                                         FontWeight.w500),
                                               ),
@@ -278,12 +283,12 @@ class _Track1State extends State<Track1> {
                                     )),
                                 Expanded(
                                     child: SizedBox(
-                                  height: 160,
+                                  height: 18.14.h,
                                   child: Column(
                                     children: [
                                       SizedBox(
-                                        height: 68,
-                                        width: 68,
+                                        height: 7.71.h,
+                                        width: 17.w,
                                         child: Image.asset(
                                           "assets/Person2.png",
                                           fit: BoxFit.fitHeight,
@@ -292,12 +297,12 @@ class _Track1State extends State<Track1> {
                                       SizedBox(
                                         height: 1.h,
                                       ),
-                                      const Center(
+                                      Center(
                                           child: Text(
                                         'Satya .H',
                                         style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 12,
+                                            fontSize: 9.sp,
                                             fontWeight: FontWeight.w500),
                                       )),
                                       SizedBox(
@@ -315,25 +320,26 @@ class _Track1State extends State<Track1> {
                                           Card(
                                             elevation: 5,
                                             child: Container(
-                                              height: 20,
-                                              width: 32,
+                                              height: 2.26.h,
+                                              width: 8.w,
                                               decoration: BoxDecoration(
                                                   color: whiteColor,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15)),
-                                              child: const Text(
+                                              child: Text(
                                                 '4.2',
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 12,
+                                                    fontSize: 9.sp,
                                                     color: Color.fromRGBO(
                                                         16, 122, 21, 1)),
-                                              ).paddingOnly(left: 7, top: 3),
+                                              ).paddingOnly(
+                                                  left: 1.75.w, top: 0.34.h),
                                             ),
                                           )
                                         ],
-                                      ).marginOnly(left: 15),
+                                      ).marginOnly(left: 3.75.w),
                                     ],
                                   ),
                                 )),
@@ -359,37 +365,37 @@ class _Track1State extends State<Track1> {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'Cancel',
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 16),
+                                        color: Colors.red, fontSize: 12.4.sp),
                                   )),
                               SizedBox(
-                                width: 5.w,
+                                width: 15.w,
                               ),
                               TextButton(
                                 onPressed: () {
                                   Get.to(const Track2());
                                 },
-                                child: const Text(
+                                child: Text(
                                   'Next',
                                   style: TextStyle(
                                       color: fontblue,
-                                      fontSize: 14,
+                                      fontSize: 11.4.sp,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ],
-                          ).marginOnly(left: 40),
+                          ).marginOnly(left: 10.sp),
                         ],
                       ),
                     ),
                   ),
-                ).marginOnly(top: 250),
+                ).marginOnly(top: 28.34.h),
               ],
             ),
-            const SizedBox(
-              height: 100,
+            SizedBox(
+              height: 11.34.h,
             ),
           ],
         ),

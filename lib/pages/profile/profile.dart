@@ -30,12 +30,10 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
         appBar: AppBar(
-          
           elevation: 2,
           automaticallyImplyLeading: false,
-          toolbarHeight: 200,
+          toolbarHeight: 22.7.h,
           flexibleSpace: Stack(
             children: [
               Container(
@@ -64,11 +62,11 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 5.w,
                         ),
-                        const Text(
+                        Text(
                           'My Profile',
                           style: TextStyle(
                               color: Color.fromRGBO(209, 207, 214, 1),
-                              fontSize: 16),
+                              fontSize: 12.4.sp),
                         )
                       ],
                     ),
@@ -81,8 +79,8 @@ class _ProfileState extends State<Profile> {
                         Stack(
                           children: [
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 25.w,
+                              height: 11.34.h,
                               decoration: BoxDecoration(
                                   border:
                                       Border.all(width: 4, color: Colors.white),
@@ -102,8 +100,8 @@ class _ProfileState extends State<Profile> {
                               bottom: 0,
                               right: 0,
                               child: Container(
-                                height: 40,
-                                width: 40,
+                                height: 4.54.h,
+                                width: 10.w,
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     // border: Border.all(
@@ -124,27 +122,27 @@ class _ProfileState extends State<Profile> {
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Text(
+                                Text(
                                   'Cody Fisher',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 15.6.sp,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(
                                   height: 1.h,
                                 ),
-                                const Text(
+                                Text(
                                   'cody.fisher@example.com',
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 12.4.sp,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
                                 ),
                                 SizedBox(height: 2.h),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      minimumSize: const Size(25, 25),
+                                      minimumSize: Size(6.25.w, 3.h),
                                       side: const BorderSide(
                                           width: 1, color: Colors.white),
                                       backgroundColor: buttonblue,
@@ -167,16 +165,16 @@ class _ProfileState extends State<Profile> {
                                         SizedBox(
                                           width: 2.w,
                                         ),
-                                        const Text(
+                                        Text(
                                           'Edit Profile',
-                                          style: TextStyle(fontSize: 12),
+                                          style: TextStyle(fontSize: 9.sp),
                                         )
                                       ],
                                     )),
                               ]),
                         )
                       ],
-                    ).marginOnly(left: 20)
+                    ).marginOnly(left: 5.w)
                   ],
                 ),
               )
@@ -200,12 +198,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.health_and_safety,
                             color: fontblue2,
@@ -214,12 +213,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "Health Information",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
@@ -245,12 +244,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.person,
                             color: fontblue2,
@@ -259,12 +259,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "General Information",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
@@ -290,12 +290,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.account_balance_wallet_rounded,
                             color: fontblue2,
@@ -304,12 +305,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "Subscription",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
@@ -335,12 +336,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.handshake,
                             color: fontblue2,
@@ -349,12 +351,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "Term and Conditions",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
@@ -380,12 +382,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.settings,
                             color: fontblue2,
@@ -394,12 +397,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "Settings",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
@@ -425,12 +428,13 @@ class _ProfileState extends State<Profile> {
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 54,
-                    width: 358,
+                    height: 6.12.h,
+                    width: 90.w,
                     child: Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
                           child: Icon(
                             Icons.power_settings_new,
                             color: Colors.red,
@@ -439,16 +443,16 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 2.5.w,
                         ),
-                        const Text(
+                        Text(
                           "Log Out",
                           style: TextStyle(
                             color: fontblue2,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 12.4.sp,
                           ),
                         ),
                         SizedBox(
-                          width: 35.w,
+                          width: 38.w,
                         ),
                         const Icon(Icons.keyboard_arrow_right)
                       ],

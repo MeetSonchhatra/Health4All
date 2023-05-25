@@ -6,11 +6,14 @@ import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/Main%20Pages/Cart.dart';
 import 'package:health4all/pages/Main%20Pages/Home.dart';
 import 'package:health4all/pages/Main%20Pages/HomeM.dart';
+import 'package:health4all/pages/Main%20Pages/Main%20Extra/results.dart';
 import 'package:health4all/pages/Main%20Pages/More.dart';
 import 'package:health4all/pages/Main%20Pages/Reports.dart';
 import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../Search/Search.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -58,17 +61,17 @@ class _NotificationsState extends State<Notifications> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
                 Stack(children: [
                   SizedBox(
-                    width: 160,
+                    width: 40.w,
                     child: DropdownButtonFormField(
-                      style: const TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
                       value: _selectedarea,
                       items: _area
                           .map((e) => DropdownMenuItem(
@@ -86,31 +89,33 @@ class _NotificationsState extends State<Notifications> {
                         color: buttonblue,
                       ),
                       dropdownColor: lightblue,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(250, 250, 250, 1))),
                         labelText: "Location",
                         labelStyle: TextStyle(
-                            fontSize: 10,
+                            fontSize: 8.sp,
                             color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
                   ),
                   Container(
-                    height: 30,
-                    width: 30,
+                    height: 3.4.h,
+                    width: 7.w,
                     decoration: BoxDecoration(
                         color: buttonblue,
                         borderRadius: BorderRadius.circular(10)),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(HomePg());
+                      },
                       padding: const EdgeInsets.all(0),
                       icon: const Icon(Icons.notifications_none_outlined),
                       color: Colors.white,
                     ),
-                  ).marginOnly(left: 270, top: 20),
-                ]).marginOnly(left: 0, top: 20),
+                  ).marginOnly(left: 67.w, top: 2.3.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -119,6 +124,9 @@ class _NotificationsState extends State<Notifications> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -131,12 +139,12 @@ class _NotificationsState extends State<Notifications> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
                         onTap: () {
-                          Get.to(const Notifications());
+                          Get.to(const Search());
                         },
                         decoration: InputDecoration(
                             filled: true,
@@ -147,9 +155,9 @@ class _NotificationsState extends State<Notifications> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -161,7 +169,7 @@ class _NotificationsState extends State<Notifications> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -172,19 +180,19 @@ class _NotificationsState extends State<Notifications> {
         child: Column(
           children: [
             SizedBox(
-              height: 4.h,
+              height: 2.h,
             ),
             Row(
               children: [
-                const Text(
+                Text(
                   'Recent Notifications',
                   style: TextStyle(
                       color: Color.fromRGBO(14, 13, 18, 1),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                      fontSize: 12.4.sp,
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
-                  width: 37.w,
+                  width: 35.w,
                 ),
                 Stack(
                   children: [
@@ -206,7 +214,7 @@ class _NotificationsState extends State<Notifications> {
                   ],
                 )
               ],
-            ).marginOnly(left: 30),
+            ).marginOnly(left: 7.5.w),
             SizedBox(
               height: 2.h,
             ),
@@ -216,40 +224,41 @@ class _NotificationsState extends State<Notifications> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  // Get.to(HomePg());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     color: whiteColor,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  height: 50,
-                  width: 350,
+                  height: 5.67.h,
+                  width: 82.w,
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3.5.w, vertical: 1.7.h),
                         child: Image.asset('assets/coronavirus.png'),
                       ),
                       SizedBox(
                         width: 1.w,
                       ),
-                      const Text(
+                      Text(
                         "Your Covid test results are here",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                         ),
                       ),
                       SizedBox(
-                        width: 2.w,
+                        width: 2.2.w,
                       ),
-                      const Text(
+                      Text(
                         '11:11am',
                         style: TextStyle(
                             color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
+                            fontSize: 9.sp),
                       )
                     ],
                   ),
@@ -265,48 +274,49 @@ class _NotificationsState extends State<Notifications> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  // Get.to(HomePg());
+                  Get.to(Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     color: whiteColor,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  height: 50,
-                  width: 350,
+                  height: 5.67.h,
+                  width: 82.w,
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3.5.w, vertical: 1.7.h),
                         child: Image.asset('assets/blood-drop.png'),
                       ),
                       SizedBox(
                         width: 1.w,
                       ),
-                      const Text(
+                      Text(
                         "Your test has been",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                         ),
                       ),
-                      const Text(
+                      Text(
                         " delivered",
                         style: TextStyle(
                           color: Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                         ),
                       ),
                       SizedBox(
                         width: 7.w,
                       ),
-                      const Text(
+                      Text(
                         '9:11am',
                         style: TextStyle(
                             color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
+                            fontSize: 9.sp),
                       )
                     ],
                   ),
@@ -318,12 +328,12 @@ class _NotificationsState extends State<Notifications> {
             ),
             Row(
               children: [
-                const Text(
+                Text(
                   'Yesterday',
                   style: TextStyle(
                       color: Color.fromRGBO(14, 13, 18, 1),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                      fontSize: 12.4.sp,
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   width: 52.w,
@@ -348,7 +358,7 @@ class _NotificationsState extends State<Notifications> {
                   ],
                 )
               ],
-            ).marginOnly(left: 30),
+            ).marginOnly(left: 7.5.w),
             SizedBox(
               height: 2.h,
             ),
@@ -358,262 +368,48 @@ class _NotificationsState extends State<Notifications> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  // Get.to(HomePg());
+                  Get.to(Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     color: whiteColor,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  height: 50,
-                  width: 350,
+                  height: 5.67.h,
+                  width: 82.w,
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 5, top: 10),
+                        padding: EdgeInsets.only(bottom: 0.56.h, top: 1.13.h),
                         child: Image.asset('assets/BioS.png'),
                       ),
                       SizedBox(
                         width: 1.w,
                       ),
-                      const Text(
+                      Text(
                         "Device has been ",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                         ),
                       ),
-                      const Text(
+                      Text(
                         "delivered",
                         style: TextStyle(
                           color: Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      const Text(
-                        '9:11am',
-                        style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ).paddingOnly(left: 9.w, right: 9.w),
-            SizedBox(
-              height: 1.h,
-            ),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60)),
-              child: GestureDetector(
-                onTap: () {
-                  // Get.to(HomePg());
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  height: 50,
-                  width: 350,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 5, top: 10),
-                        child: Image.asset('assets/BioS.png'),
-                      ),
-                      SizedBox(
-                        width: 1.w,
-                      ),
-                      const Text(
-                        "Device is in ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const Text(
-                        "transit",
-                        style: TextStyle(
-                          color: Color.fromRGBO(255, 194, 44, 1),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      const Text(
-                        '00:11am',
-                        style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ).paddingOnly(left: 9.w, right: 9.w),
-            SizedBox(
-              height: 1.h,
-            ),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60)),
-              child: GestureDetector(
-                onTap: () {
-                  // Get.to(HomePg());
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  height: 50,
-                  width: 350,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Image.asset('assets/blood-drop.png'),
-                      ),
-                      SizedBox(
-                        width: 1.w,
-                      ),
-                      const Text(
-                        "Your test has been",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const Text(
-                        " delivered",
-                        style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                         ),
                       ),
                       SizedBox(
                         width: 7.w,
                       ),
-                      const Text(
-                        '9:11am',
+                      Text(
+                        '09:11am',
                         style: TextStyle(
                             color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ).paddingOnly(left: 9.w, right: 9.w),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60)),
-              child: GestureDetector(
-                onTap: () {
-                  // Get.to(HomePg());
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  height: 50,
-                  width: 350,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 5, top: 10),
-                        child: Image.asset('assets/BioS.png'),
-                      ),
-                      SizedBox(
-                        width: 1.w,
-                      ),
-                      const Text(
-                        "Device has been ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const Text(
-                        "delivered",
-                        style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      const Text(
-                        '9:11am',
-                        style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ).paddingOnly(left: 9.w, right: 9.w),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60)),
-              child: GestureDetector(
-                onTap: () {
-                  // Get.to(HomePg());
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  height: 50,
-                  width: 350,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Image.asset('assets/coronavirus.png'),
-                      ),
-                      SizedBox(
-                        width: 1.w,
-                      ),
-                      const Text(
-                        "Your Covid test results are here",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      const Text(
-                        '11:11am',
-                        style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
-                            fontSize: 12),
+                            fontSize: 9.sp),
                       )
                     ],
                   ),
@@ -623,6 +419,283 @@ class _NotificationsState extends State<Notifications> {
             SizedBox(
               height: 1.h,
             ),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(Results());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  height: 5.67.h,
+                  width: 82.w,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 0.56.h, top: 1.13.h),
+                        child: Image.asset('assets/BioS.png'),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        "Device is in ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      Text(
+                        "transit",
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 194, 44, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 19.w,
+                      ),
+                      Text(
+                        '00:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 9.sp),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ).paddingOnly(left: 9.w, right: 9.w),
+            SizedBox(
+              height: 1.h,
+            ),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(Results());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  height: 5.67.h,
+                  width: 82.w,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 0.56.h, top: 1.13.h, left: 10),
+                        child: Image.asset('assets/blood-drop.png'),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        "Your test has been",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      Text(
+                        " delivered",
+                        style: TextStyle(
+                          color: Color.fromRGBO(6, 173, 132, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      Text(
+                        '9:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 9.sp),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ).paddingOnly(left: 9.w, right: 9.w),
+            SizedBox(
+              height: 1.h,
+            ),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(Results());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  height: 5.67.h,
+                  width: 82.w,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 0.56.h, top: 1.13.h),
+                        child: Image.asset('assets/BioS.png'),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        "Device has been ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      Text(
+                        "delivered",
+                        style: TextStyle(
+                          color: Color.fromRGBO(6, 173, 132, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 7.w,
+                      ),
+                      Text(
+                        '9:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 9.sp),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ).paddingOnly(left: 9.w, right: 9.w),
+            SizedBox(
+              height: 1.h,
+            ),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(Results());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  height: 5.67.h,
+                  width: 82.w,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3.5.w, vertical: 1.7.h),
+                        child: Image.asset('assets/coronavirus.png'),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        "Your Covid test results are here ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      Text(
+                        '11:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 9.sp),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ).paddingOnly(left: 9.w, right: 9.w),
+            SizedBox(
+              height: 1.h,
+            ),
+            Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(Results());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  height: 5.67.h,
+                  width: 82.w,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3.5.w, vertical: 1.7.h),
+                        child: Image.asset('assets/blood-drop.png'),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        "Your test has been",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      Text(
+                        " delivered",
+                        style: TextStyle(
+                          color: Color.fromRGBO(6, 173, 132, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.4.sp,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 7.w,
+                      ),
+                      Text(
+                        '9:11am',
+                        style: TextStyle(
+                            color: Color.fromRGBO(197, 197, 197, 1),
+                            fontSize: 9.sp),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ).paddingOnly(left: 9.w, right: 9.w),
+            SizedBox(
+              height: 17.h,
+            )
           ],
         ),
       ),

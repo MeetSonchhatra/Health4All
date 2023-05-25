@@ -58,12 +58,12 @@ class _OTPState extends State<OTP> {
                 Text(
                   'ConFirm OTP',
                   style: TextStyle(
-                    fontSize: 24.sp,
-                    color: buttonblue,
-                  ),
+                      fontSize: 24.sp,
+                      color: buttonblue,
+                      fontWeight: FontWeight.w500),
                 )
               ],
-            ).marginOnly(left: 30),
+            ),
             SizedBox(
               height: 1.h,
             ),
@@ -73,12 +73,12 @@ class _OTPState extends State<OTP> {
                 Text(
                   'enter OTP we just sent to your phone number',
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12.4.sp,
                     color: const Color.fromRGBO(1, 82, 168, 1),
                   ),
                 )
               ],
-            ).marginOnly(left: 30),
+            ),
             SizedBox(
               height: 4.h,
             ),
@@ -101,11 +101,17 @@ class _OTPState extends State<OTP> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Time Remaining 2:00 minute '),
+                Text('Time Remaining 2:00 minute ',
+                    style: TextStyle(fontSize: 9.sp)),
                 SizedBox(
                   width: 5.w,
                 ),
-                TextButton(onPressed: () {}, child: const Text('Resend'))
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Resend',
+                      style: TextStyle(fontSize: 9.sp),
+                    ))
               ],
             ),
             SizedBox(
@@ -113,7 +119,7 @@ class _OTPState extends State<OTP> {
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(300, 44),
+                  minimumSize: Size(81.w, 5.25.h),
                   backgroundColor: buttonblue,
                   elevation: 0,
                   shape: const RoundedRectangleBorder(
@@ -132,14 +138,20 @@ class _OTPState extends State<OTP> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don't Have an Account? "),
+                Text(
+                  "Don't Have an Account? ",
+                  style: TextStyle(
+                      fontSize: 12.4.sp, color: Color.fromRGBO(4, 6, 60, 1)),
+                ),
                 TextButton(
                   onPressed: () {
                     Get.to(const Signup());
                   },
-                  child: const Text(
+                  child: Text(
                     'Sign Up',
-                    style: TextStyle(color: Color.fromRGBO(1, 82, 168, 1)),
+                    style: TextStyle(
+                        color: Color.fromRGBO(1, 82, 168, 1),
+                        fontSize: 12.4.sp),
                   ),
                 )
               ],

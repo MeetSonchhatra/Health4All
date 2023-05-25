@@ -11,9 +11,9 @@ class Recent extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: buttonblue,
-        title: const Text(
+        title: Text(
           'Your Recent Test',
-          style: TextStyle(color: whiteColor, fontSize: 16),
+          style: TextStyle(color: whiteColor, fontSize: 12.4.sp),
         ),
       ),
       body: Column(
@@ -32,23 +32,24 @@ class Recent extends StatelessWidget {
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: 50,
-                width: 350,
+                height: 5.92.h,
+                width: 90.w,
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 3.49.w, vertical: 1.7.h),
                       child: Image.asset('assets/coronavirus.png'),
                     ),
                     SizedBox(
                       width: 1.w,
                     ),
-                    const Text(
+                    Text(
                       "Covid test",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: 11.4.sp,
                       ),
                     ),
                     SizedBox(
@@ -75,23 +76,24 @@ class Recent extends StatelessWidget {
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: 50,
-                width: 350,
+                height: 5.92.h,
+                width: 90.w,
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 3.49.w, vertical: 1.7.h),
                       child: Image.asset('assets/blood-drop.png'),
                     ),
                     SizedBox(
                       width: 1.w,
                     ),
-                    const Text(
+                    Text(
                       "Blood test",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: 11.4.sp,
                       ),
                     ),
                     SizedBox(
@@ -118,23 +120,24 @@ class Recent extends StatelessWidget {
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: 50,
-                width: 350,
+                height: 5.92.h,
+                width: 90.w,
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 3.49.w, vertical: 1.7.h),
                       child: Image.asset('assets/coronavirus.png'),
                     ),
                     SizedBox(
                       width: 1.w,
                     ),
-                    const Text(
+                    Text(
                       "Covid test",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: 11.4.sp,
                       ),
                     ),
                     SizedBox(
@@ -161,23 +164,24 @@ class Recent extends StatelessWidget {
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: 50,
-                width: 350,
+                height: 5.92.h,
+                width: 90.w,
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 3.49.w, vertical: 1.7.h),
                       child: Image.asset('assets/coronavirus.png'),
                     ),
                     SizedBox(
                       width: 1.w,
                     ),
-                    const Text(
+                    Text(
                       "Covid test",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: 11.4.sp,
                       ),
                     ),
                     SizedBox(

@@ -52,17 +52,17 @@ class _Track2State extends State<Track2> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
                 Stack(children: [
                   SizedBox(
-                    width: 160,
+                    width: 40.w,
                     child: DropdownButtonFormField(
-                      style: const TextStyle(
-                          fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
                       value: _selectedarea,
                       items: _area
                           .map((e) => DropdownMenuItem(
@@ -80,13 +80,13 @@ class _Track2State extends State<Track2> {
                         color: buttonblue,
                       ),
                       dropdownColor: lightblue,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(250, 250, 250, 1))),
                         labelText: "Location",
                         labelStyle: TextStyle(
-                            fontSize: 10,
+                            fontSize: 8.sp,
                             color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
@@ -97,8 +97,8 @@ class _Track2State extends State<Track2> {
                       Get.to(const Notifications());
                     },
                     color: Colors.black,
-                  ).marginOnly(left: 270, top: 20),
-                ]).marginOnly(left: 0, top: 20),
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -107,6 +107,9 @@ class _Track2State extends State<Track2> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -119,7 +122,7 @@ class _Track2State extends State<Track2> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
@@ -135,9 +138,9 @@ class _Track2State extends State<Track2> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -149,7 +152,7 @@ class _Track2State extends State<Track2> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -164,8 +167,8 @@ class _Track2State extends State<Track2> {
           Stack(
             children: [
               Container(
-                height: 436,
-                width: 509,
+                height: 49.44.h,
+                width: 127.25.w,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/Map2.png"),
@@ -184,8 +187,8 @@ class _Track2State extends State<Track2> {
                       decoration: const BoxDecoration(
                         color: whiteColor,
                       ),
-                      height: 300,
-                      width: 430,
+                      height: 34.h,
+                      width: 107.5.w,
                       child: Column(
                         children: [
                           SizedBox(
@@ -193,19 +196,19 @@ class _Track2State extends State<Track2> {
                           ),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Your Test is being delivered',
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ).marginOnly(left: 20),
+                                    fontSize: 14.sp, fontWeight: FontWeight.w500),
+                              ).marginOnly(left: 5.w),
                             ],
                           ),
                           SizedBox(
                             height: 1.h,
                           ),
                           Container(
-                            height: 135,
-                            width: 350,
+                            height: 15.3.h,
+                            width: 90.w,
                             child: Row(
                               children: [
                                 Expanded(
@@ -221,6 +224,7 @@ class _Track2State extends State<Track2> {
                                               Text(
                                                 'ETA: 28/03/2023',
                                                 style: TextStyle(
+                                                  fontSize: 11.4.sp,
                                                     color: Color.fromRGBO(
                                                         255, 194, 44, 1)),
                                               )
@@ -232,9 +236,9 @@ class _Track2State extends State<Track2> {
                                           Row(
                                             children: [
                                               SizedBox(
-                                                height: 30,
-                                                width: 220,
-                                                child: const Text(
+                                                height: 3.4.h,
+                                                width: 55.w,
+                                                child: Text(
                                                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                                                   maxLines: 2,
                                                   overflow:
@@ -244,7 +248,7 @@ class _Track2State extends State<Track2> {
                                                           134, 133, 136, 1),
                                                       fontWeight:
                                                           FontWeight.w400,
-                                                      fontSize: 10),
+                                                      fontSize: 7.5),
                                                 ),
                                               ),
                                             ],
@@ -255,8 +259,8 @@ class _Track2State extends State<Track2> {
                                           Row(
                                             children: [
                                               Container(
-                                                  height: 60,
-                                                  width: 80,
+                                                  height: 6.81.h,
+                                                  width: 20.w,
                                                   child: Image.asset(
                                                       "assets/Tracker.png")),
                                             ],
@@ -266,12 +270,12 @@ class _Track2State extends State<Track2> {
                                     )),
                                 Expanded(
                                     child: Container(
-                                  height: 160,
+                                  height: 18.14.h,
                                   child: Column(
                                     children: [
                                       Container(
-                                        height: 68,
-                                        width: 68,
+                                        height: 7.71.h,
+                                        width: 17.w,
                                         child: Image.asset(
                                           "assets/Person2.png",
                                           fit: BoxFit.fitHeight,
@@ -285,7 +289,7 @@ class _Track2State extends State<Track2> {
                                         'Satya .H',
                                         style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 12,
+                                            fontSize: 9.sp,
                                             fontWeight: FontWeight.w500),
                                       )),
                                       SizedBox(
@@ -303,25 +307,25 @@ class _Track2State extends State<Track2> {
                                           Card(
                                             elevation: 5,
                                             child: Container(
-                                              height: 20,
-                                              width: 32,
+                                              height: 2.26.h,
+                                              width: 8.w,
                                               decoration: BoxDecoration(
                                                   color: whiteColor,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15)),
-                                              child: const Text(
+                                              child: Text(
                                                 '4.2',
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 12,
+                                                    fontSize: 9.sp,
                                                     color: Color.fromRGBO(
                                                         16, 122, 21, 1)),
-                                              ).paddingOnly(left: 7, top: 3),
+                                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                                             ),
                                           )
                                         ],
-                                      ).marginOnly(left: 15),
+                                      ).marginOnly(left: 3.75.w),
                                     ],
                                   ),
                                 )),
@@ -344,11 +348,11 @@ class _Track2State extends State<Track2> {
                                   onPressed: () {
                                     Get.to(Report());
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'Show Report',
                                     style: TextStyle(
                                         color: Color.fromRGBO(27, 195, 154, 1),
-                                        fontSize: 16),
+                                        fontSize: 12.4.sp),
                                   )),
                               SizedBox(
                                 width: 5.w,
@@ -364,18 +368,18 @@ class _Track2State extends State<Track2> {
                                   onPressed: () {
                                     Get.to(Track3());
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'Invoice',
                                     style: TextStyle(
-                                        color: whiteColor, fontSize: 16),
+                                        color: whiteColor, fontSize: 12.4.sp),
                                   )),
                             ],
-                          ).marginOnly(left: 40),
+                          ).marginOnly(left: 10.w),
                         ],
                       ),
                     ),
                   ),
-                ).marginOnly(top: 250),
+                ).marginOnly(top: 28.34.h),
               ),
             ],
           ),

@@ -13,6 +13,9 @@ import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Main Pages/Main Extra/Notifications.dart';
+import 'Search.dart';
+
 class Lab extends StatefulWidget {
   const Lab({super.key});
 
@@ -59,52 +62,53 @@ class _LabState extends State<Lab> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
-                Container(
-                  child: Stack(children: [
-                    Container(
-                      width: 160,
-                      child: DropdownButtonFormField(
-                        style: const TextStyle(
-                            fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
-                        value: _selectedarea,
-                        items: _area
-                            .map((e) => DropdownMenuItem(
-                                  child: Text(e),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _selectedarea = val as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: buttonblue,
-                        ),
-                        dropdownColor: lightblue,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(250, 250, 250, 1))),
-                          labelText: "Location",
-                          labelStyle: TextStyle(
-                              fontSize: 10,
-                              color: Color.fromRGBO(197, 197, 197, 1)),
-                        ),
+                Stack(children: [
+                  SizedBox(
+                    width: 40.w,
+                    child: DropdownButtonFormField(
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
+                      value: _selectedarea,
+                      items: _area
+                          .map((e) => DropdownMenuItem(
+                                child: Text(e),
+                                value: e,
+                              ))
+                          .toList(),
+                      onChanged: (val) {
+                        setState(() {
+                          _selectedarea = val as String;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_drop_down,
+                        color: buttonblue,
+                      ),
+                      dropdownColor: lightblue,
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(250, 250, 250, 1))),
+                        labelText: "Location",
+                        labelStyle: TextStyle(
+                            fontSize: 8.sp,
+                            color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
-                    const Icon(
-                      Icons.notifications_none_outlined,
-                      color: Colors.black,
-                    ).marginOnly(left: 270, top: 20),
-                  ]),
-                ).marginOnly(left: 0, top: 20),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications_none_outlined),
+                    onPressed: () {
+                      Get.to(const Notifications());
+                    },
+                    color: Colors.black,
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -113,6 +117,9 @@ class _LabState extends State<Lab> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -125,12 +132,12 @@ class _LabState extends State<Lab> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
                         onTap: () {
-                          Get.to(const Lab());
+                          Get.to(const Search());
                         },
                         decoration: InputDecoration(
                             filled: true,
@@ -141,9 +148,9 @@ class _LabState extends State<Lab> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -155,7 +162,7 @@ class _LabState extends State<Lab> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -170,15 +177,15 @@ class _LabState extends State<Lab> {
             ),
             Row(
               children: [
-                const Text(
+                Text(
                   'Laboratory:',
                   style: TextStyle(
                       color: Color.fromRGBO(3, 9, 19, 1),
                       fontWeight: FontWeight.w500,
-                      fontSize: 14),
+                      fontSize: 11.4.sp),
                 ),
               ],
-            ).marginOnly(left: 50),
+            ).marginOnly(left: 12.5.w),
             SizedBox(
               height: 2.h,
             ),
@@ -190,8 +197,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -199,8 +206,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -213,12 +220,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -229,26 +236,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -260,10 +267,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -278,8 +285,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -287,8 +294,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -301,12 +308,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -317,26 +324,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -348,10 +355,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -366,8 +373,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -375,8 +382,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -389,12 +396,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -405,26 +412,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -436,10 +443,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -454,8 +461,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -463,8 +470,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -477,12 +484,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -493,26 +500,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -524,10 +531,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -542,8 +549,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -551,8 +558,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -565,12 +572,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -581,26 +588,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -612,10 +619,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),
@@ -630,8 +637,8 @@ class _LabState extends State<Lab> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(0),
-                    height: 105,
-                    width: 350,
+                    height: 12.h,
+                    width: 90.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
@@ -639,8 +646,8 @@ class _LabState extends State<Lab> {
                             fit: BoxFit.fill)),
                   ).marginOnly(left: 9.w, right: 9.w),
                   Container(
-                    height: 81,
-                    width: 301,
+                    height: 9.2.h,
+                    width: 76.5.w,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -653,12 +660,12 @@ class _LabState extends State<Lab> {
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
                                   color: whiteColor,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20),
+                                  fontSize: 15.6.sp),
                             ),
                             SizedBox(
                               width: 15.w,
@@ -669,26 +676,26 @@ class _LabState extends State<Lab> {
                               decoration: BoxDecoration(
                                   color: whiteColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
+                              child: Text(
                                 '4.2',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 9.sp,
                                     color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
+                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
                             )
                           ],
-                        ).marginOnly(left: 20, right: 20),
+                        ).marginOnly(left: 5.w, right: 5.w),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Row(
                           children: [
-                            const Text(
+                            Text(
                               'Gh-5, Gandhinagar, 5km away',
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                  fontSize: 9.sp,
                                   color: Color.fromRGBO(255, 255, 255, 0.61)),
                             ),
                             SizedBox(
@@ -700,10 +707,10 @@ class _LabState extends State<Lab> {
                               size: 25,
                             ),
                           ],
-                        ).marginOnly(left: 20, right: 20)
+                        ).marginOnly(left: 5.w, right: 5.w)
                       ],
                     ),
-                  ).marginOnly(top: 23, left: 45)
+                  ).marginOnly(top: 2.95.h, left: 11.25.w)
                 ],
               ),
             ),

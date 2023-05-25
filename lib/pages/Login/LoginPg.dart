@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
                       decoration: const BoxDecoration(
                         color: lightblue,
                       ),
-                    ).marginOnly(left: 20),
+                    ).marginOnly(left: 4.652.w),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(300, 44),
+                    minimumSize: Size(81.595.w, 5.h),
                     backgroundColor: buttonblue,
                     elevation: 0,
                     shape: const RoundedRectangleBorder(
@@ -96,7 +96,7 @@ class LoginPage extends StatelessWidget {
                       width: 2.0,
                       color: buttonblue,
                     ),
-                    minimumSize: const Size(300, 44),
+                    minimumSize: Size(81.595.w, 5.h),
                     backgroundColor: whiteColor,
                     elevation: 0,
                     shape: const RoundedRectangleBorder(

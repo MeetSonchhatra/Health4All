@@ -13,7 +13,6 @@ import 'package:health4all/pages/Main%20Pages/Reports.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
-
 class HomeM extends StatefulWidget {
   const HomeM({super.key});
 
@@ -23,7 +22,6 @@ class HomeM extends StatefulWidget {
 
 class _HomeMState extends State<HomeM> {
   int num = 0;
-  var padding = const EdgeInsets.symmetric(horizontal: 18, vertical: 5);
   double gap = 10;
   final _pageData = [
     const HomeM(),
@@ -72,8 +70,8 @@ class _HomeMState extends State<HomeM> {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: 3.5.h,
               ),
               SizedBox(
                 height: 15.h,
@@ -90,11 +88,11 @@ class _HomeMState extends State<HomeM> {
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Your Recent Tests',
                     style: TextStyle(
                       color: Color.fromRGBO(14, 13, 18, 1),
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ).marginOnly(left: 40),
@@ -105,11 +103,11 @@ class _HomeMState extends State<HomeM> {
                     onPressed: () {
                       Get.to(const Recent());
                     },
-                    child: const Text(
+                    child: Text(
                       'View all',
                       style: TextStyle(
                           color: fontblue,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -159,21 +157,21 @@ class _HomeMState extends State<HomeM> {
                       },
                     ),
                   ],
-                ).marginOnly(left: 20),
+                ).marginOnly(left: 5.w),
               ),
               SizedBox(
                 height: 4.h,
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Popular Packages',
                     style: TextStyle(
                       color: fontblack,
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                  ).marginOnly(left: 40),
+                  ).marginOnly(left: 10.w),
                   SizedBox(
                     width: 30.w,
                   ),
@@ -181,11 +179,11 @@ class _HomeMState extends State<HomeM> {
                     onPressed: () {
                       Get.to(const Popular());
                     },
-                    child: const Text(
+                    child: Text(
                       'View all',
                       style: TextStyle(
                           color: fontblue,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -197,29 +195,31 @@ class _HomeMState extends State<HomeM> {
               Stack(
                 children: [
                   Container(
-                    height: 132,
-                    width: 310,
-                    margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+                    height: 15.h,
+                    width: 76.w,
+                    margin:
+                        EdgeInsets.only(left: 2.5.w, right: 2.5.w, top: 2.3.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(15),
                       color: const Color.fromRGBO(237, 246, 255, 1),
                     ),
                   ),
                   Container(
-                    height: 132,
-                    width: 330,
-                    margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                    height: 15.5.h,
+                    width: 80.w,
+                    margin:
+                        EdgeInsets.only(left: 2.5.w, right: 2.5.w, top: 1.15.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(15),
                       color: const Color.fromRGBO(186, 220, 255, 1),
                     ),
                   ),
                   Container(
-                    height: 132,
-                    width: 350,
-                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    height: 15.5.h,
+                    width: 84.w,
+                    margin: EdgeInsets.only(left: 2.5.w, right: 2.5.w),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(15),
                         color: lightblue,
                         image: const DecorationImage(
                             fit: BoxFit.cover,
@@ -232,14 +232,14 @@ class _HomeMState extends State<HomeM> {
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Rapid Basic Test',
                     style: TextStyle(
                       color: fontblack,
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                  ).marginOnly(left: 40),
+                  ).marginOnly(left: 10.w),
                   SizedBox(
                     width: 33.w,
                   ),
@@ -247,11 +247,11 @@ class _HomeMState extends State<HomeM> {
                     onPressed: () {
                       Get.to(const RapidTest());
                     },
-                    child: const Text(
+                    child: Text(
                       'View all',
                       style: TextStyle(
                           color: fontblue,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -306,38 +306,38 @@ class _HomeMState extends State<HomeM> {
                       press: () {},
                     ),
                   ],
-                ).marginOnly(left: 20),
+                ).marginOnly(left: 5.w),
               ),
               SizedBox(
                 height: 2.h,
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Get to Know',
                     style: TextStyle(
                       color: Color.fromRGBO(14, 13, 18, 1),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 12.4.sp,
+                      fontWeight: FontWeight.w500,
                     ),
-                  ).marginOnly(left: 40),
-                  const Text(
+                  ).marginOnly(left: 10.w),
+                  Text(
                     ' BioSampler',
                     style: TextStyle(
                       color: Color.fromRGBO(30, 59, 141, 1),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 12.4.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'TM',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 8,
+                      fontSize: 6.sp,
                       fontFeatures: [FontFeature.superscripts()],
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(
@@ -348,50 +348,50 @@ class _HomeMState extends State<HomeM> {
                   Card(
                     elevation: 6,
                     child: SizedBox(
-                      height: 165,
-                      width: 350,
+                      height: 19.5.h,
+                      width: 87.5.w,
                       child: Row(
                         children: [
                           Image.asset("assets/BioS.png"),
                         ],
                       ),
                     ),
-                  ).marginOnly(left: 20),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(227, 33, 0, 75),
+                  ).marginOnly(left: 5.w),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(54.w, 3.80.h, 0, 17.5.w),
                     child: SizedBox(
-                      height: 57,
-                      width: 81,
+                      height: 6.5.h,
+                      width: 20.25.w,
                       child: Text(
-                        'Diagnostic At Your DoorStep',
+                        'Diagnostic At Your Doorstep',
                         style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 12.4.sp,
+                            fontWeight: FontWeight.w600,
                             color: Color.fromRGBO(1, 82, 168, 1)),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 100),
+                    padding: EdgeInsets.only(top: 11.34.h),
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(25, 25),
+                            minimumSize: Size(25, 25),
                             backgroundColor: buttonblue,
                             elevation: 0,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(
-                                Radius.circular(30),
+                                Radius.circular(18),
                               ),
                             ),
                           ),
                           onPressed: () {},
                           child: Wrap(
-                            children: const [
+                            children: [
                               Text(
                                 'Know More',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 9.sp),
                               ),
                               SizedBox(
                                 width: 2,
@@ -401,55 +401,60 @@ class _HomeMState extends State<HomeM> {
                                 size: 16,
                               )
                             ],
-                          )).marginOnly(right: 40),
+                          )).marginOnly(right: 10.w),
                     ),
                   )
                 ],
               ),
               SizedBox(
-                height: 1.h,
+                height: 2.h,
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Laboratory Around You',
                     style: TextStyle(
                       color: fontblack,
-                      fontSize: 16,
+                      fontSize: 12.4.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                  ).marginOnly(left: 40),
+                  ).marginOnly(left: 10.w),
                   SizedBox(
                     width: 22.w,
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       'View all',
                       style: TextStyle(
                           color: fontblue,
-                          fontSize: 14,
+                          fontSize: 11.4.sp,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 1.h,
+                height: 0.5.h,
               ),
-              SizedBox(
-                height: 218,
-                width: 350,
-                child: Image.asset("assets/map.jpg", fit: BoxFit.cover),
-              ).marginSymmetric(horizontal: 20),
+              Container(
+                height: 25.h,
+                width: 82.w,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: AssetImage("assets/map.jpg"),
+                      fit: BoxFit.cover,
+                    )),
+              ).marginSymmetric(horizontal: 4.7.w),
               SizedBox(
                 height: 3.h,
               ),
               SizedBox(
-                height: 161,
-                width: 384,
+                height: 18.3.h,
+                width: 90.w,
                 child: Image.asset("assets/Offers.png", fit: BoxFit.cover),
-              ).marginOnly(left: 20),
+              ).marginOnly(left: 5.w),
               SizedBox(
                 height: 2.h,
               ),
@@ -489,8 +494,8 @@ class _HomeMState extends State<HomeM> {
       child: Stack(
         children: [
           Container(
-            height: 132,
-            margin: const EdgeInsets.only(left: 5, right: 5),
+            height: 15.h,
+            margin: EdgeInsets.only(left: 1.2.w, right: 1.2.w),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 color: index.isEven ? buttonblue : lightblue,
@@ -539,14 +544,15 @@ class RecommendedTest extends StatelessWidget {
               children: <Widget>[
                 Container(
                   color: const Color.fromRGBO(246, 246, 246, 1),
-                  height: 70,
-                  width: 70,
+                  height: 8.h,
+                  width: 18.w,
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 2.35.w, vertical: 1.13.h),
                     child: Image.asset(
                       image!,
-                      height: 50,
-                      width: 50,
+                      height: 5.7,
+                      width: 12.5.w,
                     ),
                   ),
                 ),
@@ -556,13 +562,13 @@ class RecommendedTest extends StatelessWidget {
                 GestureDetector(
                   onTap: press,
                   child: Container(
-                    padding: const EdgeInsets.all(1),
+                    padding: EdgeInsets.all(1),
                     child: Row(
                       children: <Widget>[
                         Text("$title",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Color.fromRGBO(0, 0, 0, 1),
-                                fontSize: 14,
+                                fontSize: 11.4.sp,
                                 fontWeight: FontWeight.w400))
                       ],
                     ),
@@ -570,8 +576,8 @@ class RecommendedTest extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(
-              width: 20,
+            SizedBox(
+              width: 5.w,
             )
           ],
         ),
@@ -598,12 +604,12 @@ class DoneTest extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               //color: Color.fromRGBO(246, 246, 246, 1),
-              height: 70,
-              width: 70,
+              height: 8.h,
+              width: 18.w,
               child: Image.asset(
                 image!,
-                height: 50,
-                width: 50,
+                height: 5.7.h,
+                width: 12.5.w,
               ),
             ),
             GestureDetector(
@@ -619,8 +625,8 @@ class DoneTest extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Text("$title",
-                        style: const TextStyle(
-                            fontSize: 14,
+                        style: TextStyle(
+                            fontSize: 11.4.sp,
                             fontWeight: FontWeight.w400,
                             color: Color.fromRGBO(63, 81, 81, 1)))
                   ],

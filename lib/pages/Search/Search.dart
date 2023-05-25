@@ -15,6 +15,8 @@ import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Main Pages/Main Extra/Notifications.dart';
+
 class Search extends StatefulWidget {
   const Search({super.key});
 
@@ -61,52 +63,53 @@ class _SearchState extends State<Search> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
-                Container(
-                  child: Stack(children: [
-                    Container(
-                      width: 160,
-                      child: DropdownButtonFormField(
-                        style: const TextStyle(
-                            fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
-                        value: _selectedarea,
-                        items: _area
-                            .map((e) => DropdownMenuItem(
-                                  child: Text(e),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _selectedarea = val as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: buttonblue,
-                        ),
-                        dropdownColor: lightblue,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(250, 250, 250, 1))),
-                          labelText: "Location",
-                          labelStyle: TextStyle(
-                              fontSize: 10,
-                              color: Color.fromRGBO(197, 197, 197, 1)),
-                        ),
+                Stack(children: [
+                  SizedBox(
+                    width: 40.w,
+                    child: DropdownButtonFormField(
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
+                      value: _selectedarea,
+                      items: _area
+                          .map((e) => DropdownMenuItem(
+                                child: Text(e),
+                                value: e,
+                              ))
+                          .toList(),
+                      onChanged: (val) {
+                        setState(() {
+                          _selectedarea = val as String;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_drop_down,
+                        color: buttonblue,
+                      ),
+                      dropdownColor: lightblue,
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(250, 250, 250, 1))),
+                        labelText: "Location",
+                        labelStyle: TextStyle(
+                            fontSize: 8.sp,
+                            color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
-                    const Icon(
-                      Icons.notifications_none_outlined,
-                      color: Colors.black,
-                    ).marginOnly(left: 270, top: 20),
-                  ]),
-                ).marginOnly(left: 0, top: 20),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications_none_outlined),
+                    onPressed: () {
+                      Get.to(const Notifications());
+                    },
+                    color: Colors.black,
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -115,6 +118,9 @@ class _SearchState extends State<Search> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -127,7 +133,7 @@ class _SearchState extends State<Search> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
@@ -143,9 +149,9 @@ class _SearchState extends State<Search> {
                             hintText: "Search Test or Laboratory",
                             contentPadding:
                                 const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
@@ -157,7 +163,7 @@ class _SearchState extends State<Search> {
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -171,17 +177,18 @@ class _SearchState extends State<Search> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Container(
-              width: 300,
-              height: 480,
+              width: 75.w,
+              height: 54.5.h,
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Search By:',
-                        style: TextStyle(color: Colors.black, fontSize: 14),
-                      ).marginOnly(left: 20, top: 20),
+                        style:
+                            TextStyle(color: Colors.black, fontSize: 11.4.sp),
+                      ).marginOnly(left: 5.w, top: 2.27.h),
                     ],
                   ),
                   Row(
@@ -247,15 +254,15 @@ class _SearchState extends State<Search> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Top Diagnostic Test:',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 14),
-                            ).marginOnly(left: 20, top: 20),
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 11.4.sp),
+                            ).marginOnly(left: 5.w, top: 2.27.h),
                           ],
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.7.h,
                         ),
                         Row(
                           children: [
@@ -267,14 +274,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'COVID Test',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -291,14 +298,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'Pregnancy Test',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -315,14 +322,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'Blood Test',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -338,15 +345,15 @@ class _SearchState extends State<Search> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Top  Laboratory:',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 14),
-                            ).marginOnly(left: 20, top: 20),
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 11.4.sp),
+                            ).marginOnly(left: 5.w, top: 2.27.h),
                           ],
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.7.h,
                         ),
                         Row(
                           children: [
@@ -358,14 +365,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'Sharda Laboratory',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -382,14 +389,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'Sterling Laboratory',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -406,14 +413,14 @@ class _SearchState extends State<Search> {
                             SizedBox(
                               width: 4.w,
                             ),
-                            const Text(
+                            Text(
                               'K.D. Laboratory',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 11.4.sp,
                                   color: Color.fromRGBO(4, 6, 60, 1)),
                             )
                           ],
-                        ).marginOnly(left: 20),
+                        ).marginOnly(left: 5.w),
                         const Divider(
                           color: Colors.grey,
                         ),
@@ -423,7 +430,7 @@ class _SearchState extends State<Search> {
                 ],
               ),
             ),
-          ).marginOnly(top: 30, left: 40),
+          ).marginOnly(top: 3.4.h, left: 10.w),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

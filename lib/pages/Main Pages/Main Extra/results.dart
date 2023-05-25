@@ -13,6 +13,9 @@ import 'package:health4all/pages/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../Search/Search.dart';
+import 'Notifications.dart';
+
 class Results extends StatefulWidget {
   const Results({super.key});
 
@@ -59,52 +62,53 @@ class _ResultsState extends State<Results> {
         elevation: 2,
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
-        toolbarHeight: 170,
+        toolbarHeight: 19.3.h,
         flexibleSpace: Stack(
           children: [
             Column(
               children: [
-                Container(
-                  child: Stack(children: [
-                    SizedBox(
-                      width: 160,
-                      child: DropdownButtonFormField(
-                        style: const TextStyle(
-                            fontSize: 12, color: Color.fromRGBO(3, 9, 19, 1)),
-                        value: _selectedarea,
-                        items: _area
-                            .map((e) => DropdownMenuItem(
-                                  child: Text(e),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _selectedarea = val as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: buttonblue,
-                        ),
-                        dropdownColor: lightblue,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(250, 250, 250, 1))),
-                          labelText: "Location",
-                          labelStyle: TextStyle(
-                              fontSize: 10,
-                              color: Color.fromRGBO(197, 197, 197, 1)),
-                        ),
+                Stack(children: [
+                  SizedBox(
+                    width: 40.w,
+                    child: DropdownButtonFormField(
+                      style: TextStyle(
+                          fontSize: 9.sp, color: Color.fromRGBO(3, 9, 19, 1)),
+                      value: _selectedarea,
+                      items: _area
+                          .map((e) => DropdownMenuItem(
+                                child: Text(e),
+                                value: e,
+                              ))
+                          .toList(),
+                      onChanged: (val) {
+                        setState(() {
+                          _selectedarea = val as String;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_drop_down,
+                        color: buttonblue,
+                      ),
+                      dropdownColor: lightblue,
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(250, 250, 250, 1))),
+                        labelText: "Location",
+                        labelStyle: TextStyle(
+                            fontSize: 8.sp,
+                            color: Color.fromRGBO(197, 197, 197, 1)),
                       ),
                     ),
-                    const Icon(
-                      Icons.notifications_none_outlined,
-                      color: Colors.black,
-                    ).marginOnly(left: 270, top: 20),
-                  ]),
-                ).marginOnly(left: 0, top: 20),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications_none_outlined),
+                    onPressed: () {
+                      Get.to(const Notifications());
+                    },
+                    color: Colors.black,
+                  ).marginOnly(left: 67.5.w, top: 0.h),
+                ]).marginOnly(left: 0, top: 2.3.h),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -113,6 +117,9 @@ class _ResultsState extends State<Results> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _index = 0;
+                        });
                         Get.to(const Profile());
                       },
                       child: const CircleAvatar(
@@ -125,34 +132,37 @@ class _ResultsState extends State<Results> {
                       width: 5.w,
                     ),
                     Container(
-                      width: 280,
+                      width: 70.w,
                       color: const Color.fromRGBO(250, 250, 250, 1),
                       child: TextField(
                         readOnly: true,
                         onTap: () {
-                          Get.to(const Results());
+                          Get.to(const Search());
                         },
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: const Icon(Icons.search),
-                            prefixIconColor: const Color.fromRGBO(197, 197, 197, 1),
+                            prefixIconColor:
+                                const Color.fromRGBO(197, 197, 197, 1),
                             hintText: "Search Test or Laboratory",
-                            contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                            hintStyle: const TextStyle(
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 10),
+                            hintStyle: TextStyle(
                                 color: Color.fromRGBO(197, 197, 197, 1),
-                                fontSize: 12),
+                                fontSize: 9.sp),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(60),
                               borderSide: const BorderSide(color: Colors.white),
                             ),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(60),
-                                borderSide: const BorderSide(color: Colors.white))),
+                                borderSide:
+                                    const BorderSide(color: Colors.white))),
                       ),
                     )
                   ],
-                ).marginOnly(left: 20))
+                ).marginOnly(left: 5.w))
               ],
             ),
           ],
@@ -166,19 +176,19 @@ class _ResultsState extends State<Results> {
           ),
           Row(
             children: [
-              const Text(
+              Text(
                 'Report No: ',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 12.4.sp,
                   color: Color.fromRGBO(14, 13, 18, 1),
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-              const Text(
+              Text(
                 'CD1201583',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.4.sp,
                     color: Color.fromRGBO(30, 59, 141, 1)),
               ),
               SizedBox(
@@ -211,7 +221,7 @@ class _ResultsState extends State<Results> {
                       SizedBox(
                         width: 1.w,
                       ),
-                      const Text(
+                      Text(
                         "Your Covid test results ",
                         style: TextStyle(
                           color: Colors.black,
@@ -222,7 +232,7 @@ class _ResultsState extends State<Results> {
                       SizedBox(
                         width: 15.w,
                       ),
-                      const Text(
+                      Text(
                         '11:11am',
                         style: TextStyle(
                             color: Color.fromRGBO(197, 197, 197, 1),
@@ -234,12 +244,12 @@ class _ResultsState extends State<Results> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 34,
+          SizedBox(
+            height: 3.86.h,
           ),
           Expanded(
               child: SizedBox(
-            height: 250,
+            height: 28.35.h,
             child: PageView.builder(
                 itemCount: 4,
                 controller: controller,
@@ -293,7 +303,7 @@ class _ResultsState extends State<Results> {
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'Reports',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,
@@ -308,7 +318,7 @@ class _ResultsState extends State<Results> {
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'My Cart',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,
@@ -320,7 +330,7 @@ class _ResultsState extends State<Results> {
                   iconColor: buttonblue,
                   iconActiveColor: Colors.white,
                   text: 'More',
-                  textSize: 12,
+                  textSize: 12.sp,
                   textColor: Colors.white,
                   backgroundColor: buttonblue,
                   iconSize: 24,
