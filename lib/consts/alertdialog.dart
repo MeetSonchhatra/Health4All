@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/Main%20Pages/Home.dart';
-import 'package:health4all/pages/track/track1.dart';
+import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
+import 'package:health4all/pages/user-side/track/track1.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomDialog extends StatelessWidget {

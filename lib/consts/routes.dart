@@ -1,9 +1,9 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:health4all/pages/Login/LoginPg.dart';
-import 'package:health4all/pages/Login/onboarding.dart';
-import 'package:health4all/pages/Login/splashscreen.dart';
+import 'package:health4all/pages/user-side/Login/LoginPg.dart';
+import 'package:health4all/pages/user-side/Login/onboarding.dart';
+import 'package:health4all/pages/user-side/Login/splashscreen.dart';
 
-class MyRoutes{
+class MyRoutes {
   static String loginroute = "/login";
   static String splashroute = "/splash";
   static String onboardingroute = "/onboarding";
@@ -22,6 +22,4 @@ final getPages = [
     name: MyRoutes.loginroute,
     page: () => const LoginPage(),
   ),
-
-  
 ];

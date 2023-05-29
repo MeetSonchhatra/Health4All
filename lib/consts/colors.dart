@@ -9,3 +9,5 @@ const Color fontblue2 = Color.fromRGBO(3, 9, 19, 1);
 const Color buttonblue = Color.fromRGBO(7, 32, 60, 1);
 const Color lightblue = Color.fromRGBO(220, 244, 255, 1);
 const Color darkblue = Color.fromRGBO(30, 30, 30, 0);
+const Color buttoncream = Color.fromRGBO(210, 160, 119, 1);
+const Color bordersilver = Color.fromRGBO(234, 233, 234, 1);
