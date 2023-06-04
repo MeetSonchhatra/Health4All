@@ -11,23 +11,24 @@ import 'package:health4all/pages/user-side/Main%20Pages/HomeM.dart';
 import 'package:sizer/sizer.dart';
 import '../../../consts/colors.dart';
 import 'package:quickalert/quickalert.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class OTP extends StatefulWidget {
-  const OTP({super.key, required this.phone});
-  final String phone;
+import '../../../model/SignupModel.dart';
+
+class OTP2 extends StatefulWidget {
+  const OTP2({super.key, required this.phone,required this.nam,required this.email,required this.gendr,required this.dob,required this.city});
+  final String phone,nam,email,gendr,dob,city;
   @override
-  State<OTP> createState() => _OTPState();
+  State<OTP2> createState() => _OTP2State();
 }
 
-class _OTPState extends State<OTP> {
+class _OTP2State extends State<OTP2> {
   TextEditingController otp1 = TextEditingController();
   TextEditingController otp2 = TextEditingController();
   TextEditingController otp3 = TextEditingController();
   TextEditingController otp4 = TextEditingController();
   TextEditingController otp5 = TextEditingController();
   TextEditingController otp6 = TextEditingController();
-  void showAlert() {
+  showAlert() {
     QuickAlert.show(
         context: context,
         type: QuickAlertType.success,
@@ -145,11 +146,8 @@ class _OTPState extends State<OTP> {
                       otp5.text +
                       otp6.text;
                   if (fOtp == "123456") {
-                    LoginModel data = await LoginApi().loginList(widget.phone);
-                    SharedPreferences preference = await SharedPreferences.getInstance(); 
-                      preference.setString("token",data.data!.token.toString());
+                    SignUpModel data = await SigupApi().signupList(widget.nam,widget.email,widget.phone,widget.gendr,widget.city,widget.dob);
                     if (data.code == 200) {
-                      
                       showAlert();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

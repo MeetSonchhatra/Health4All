@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/user-side/Login/LoginPg.dart';
-import 'package:health4all/pages/user-side/Login/OTP.dart';
 import 'package:health4all/pages/user-side/Login/Signup.dart';
 import 'package:sizer/sizer.dart';
+import 'OTPU1.dart';
 
-class LoginM extends StatefulWidget {
-  const LoginM({super.key});
+class Update1 extends StatefulWidget {
+  const Update1({super.key});
 
   @override
-  State<LoginM> createState() => _LoginMState();
+  State<Update1> createState() => _Update1State();
 }
 
-class _LoginMState extends State<LoginM> {
+class _Update1State extends State<Update1> {
   TextEditingController phone = TextEditingController();
   final formKey = GlobalKey<FormState>();
   String name = "";
@@ -42,28 +41,7 @@ class _LoginMState extends State<LoginM> {
               SizedBox(
                 height: 1.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                        color: const Color.fromRGBO(51, 51, 51, 1),
-                        fontSize: 15.6.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ).marginOnly(left: 10.w),
-              Row(
-                children: [
-                  Text(
-                    "to your HealthBuddy Account",
-                    style: TextStyle(
-                      color: const Color.fromRGBO(1, 82, 168, 1),
-                      fontSize: 15.6.sp,
-                    ),
-                  )
-                ],
-              ).marginOnly(left: 10.w),
+
               SizedBox(
                 height: 4.5.h,
               ),
@@ -84,7 +62,7 @@ class _LoginMState extends State<LoginM> {
               Row(
                 children: [
                   Text(
-                    "Enter your Mobile number",
+                    "Enter your Old Mobile number",
                     style: TextStyle(
                       color: fontblack,
                       fontSize: 12.4.sp,
@@ -146,7 +124,7 @@ class _LoginMState extends State<LoginM> {
                   ),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Get.to(OTP(phone: phone.text,));
+                      Get.to(OTPU1(phone: phone.text,));
                     }
                   },
                   child: const Text('Generate OTP')),

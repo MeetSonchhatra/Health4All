@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health4all/api.dart';
 import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/More.dart';
@@ -8,6 +9,7 @@ import 'package:health4all/pages/user-side/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../model/user_display.dart';
 import '../Main Pages/Cart.dart';
 import '../Main Pages/Reports.dart';
 
@@ -19,6 +21,27 @@ class GenInfo extends StatefulWidget {
 }
 
 class _GenInfoState extends State<GenInfo> {
+  String name = '';
+  String email = '';
+  String phone = '';
+  String city = '';
+
+  void getdata() async {
+    User_display_Model data = await userdisplayApi().userdisplayList();
+    setState(() {
+      name = data.data![0].fullName.toString();
+      email = data.data![0].email.toString();
+      phone = data.data![0].mobile.toString();
+      city = data.data![0].city.toString();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getdata();
+  }
+
   int myIndex = 0;
   DateTime? _selectedDate;
   final _pin = ["380001", "380002", "380003", "380004", "380005", "380006"];
@@ -64,8 +87,7 @@ class _GenInfoState extends State<GenInfo> {
               onPressed: () {
                 Get.to(const Profile());
               },
-            )
-            ),
+            )),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -117,7 +139,8 @@ class _GenInfoState extends State<GenInfo> {
                   Text(
                     'General Information',
                     style: TextStyle(
-                        fontSize: 12.4.sp, color: Color.fromRGBO(5, 27, 98, 1)),
+                        fontSize: 12.4.sp,
+                        color: const Color.fromRGBO(5, 27, 98, 1)),
                   ).marginOnly(left: 5.w),
                   SizedBox(
                     width: 29.w,
@@ -167,7 +190,7 @@ class _GenInfoState extends State<GenInfo> {
                   Text(
                     "Name",
                     style: TextStyle(
-                      color: Color.fromRGBO(197, 197, 197, 1),
+                      color: const Color.fromRGBO(197, 197, 197, 1),
                       fontSize: 12.4.sp,
                     ),
                   )
@@ -187,9 +210,9 @@ class _GenInfoState extends State<GenInfo> {
                   child: Row(
                     children: [
                       Text(
-                        'Cody Fisher',
+                        name,
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1),
+                            color: const Color.fromRGBO(63, 81, 81, 1),
                             fontSize: 12.4.sp),
                       ).marginOnly(left: 10.w)
                     ],
@@ -209,7 +232,7 @@ class _GenInfoState extends State<GenInfo> {
                   Text(
                     "Email",
                     style: TextStyle(
-                      color: Color.fromRGBO(197, 197, 197, 1),
+                      color: const Color.fromRGBO(197, 197, 197, 1),
                       fontSize: 12.4.sp,
                     ),
                   )
@@ -229,9 +252,9 @@ class _GenInfoState extends State<GenInfo> {
                   child: Row(
                     children: [
                       Text(
-                        'cody.fisher@gmail.com',
+                        email,
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1),
+                            color: const Color.fromRGBO(63, 81, 81, 1),
                             fontSize: 12.4.sp),
                       ).marginOnly(left: 10.w)
                     ],
@@ -251,7 +274,7 @@ class _GenInfoState extends State<GenInfo> {
                   Text(
                     "Mobile Number",
                     style: TextStyle(
-                      color: Color.fromRGBO(197, 197, 197, 1),
+                      color: const Color.fromRGBO(197, 197, 197, 1),
                       fontSize: 12.4.sp,
                     ),
                   )
@@ -271,9 +294,9 @@ class _GenInfoState extends State<GenInfo> {
                   child: Row(
                     children: [
                       Text(
-                        '9512658789',
+                        phone,
                         style: TextStyle(
-                            color: Color.fromRGBO(63, 81, 81, 1),
+                            color: const Color.fromRGBO(63, 81, 81, 1),
                             fontSize: 12.4.sp),
                       ).marginOnly(left: 10.w)
                     ],
@@ -293,7 +316,7 @@ class _GenInfoState extends State<GenInfo> {
                   Text(
                     "Address",
                     style: TextStyle(
-                      color: Color.fromRGBO(197, 197, 197, 1),
+                      color: const Color.fromRGBO(197, 197, 197, 1),
                       fontSize: 12.4.sp,
                     ),
                   )
@@ -320,7 +343,7 @@ class _GenInfoState extends State<GenInfo> {
                           // overflow: TextOverflow.ellipsis,
                           maxLines: 3,
                           style: TextStyle(
-                              color: Color.fromRGBO(63, 81, 81, 1),
+                              color: const Color.fromRGBO(63, 81, 81, 1),
                               fontSize: 12.4.sp),
                         ).marginOnly(left: 5.w),
                       ).paddingOnly(left: 5.w, top: 2.h)

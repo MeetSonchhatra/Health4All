@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/user-side/Login/LoginM.dart';
+import 'package:health4all/pages/user-side/Login/update1.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Cart.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/HomeM.dart';
@@ -14,6 +15,12 @@ import 'package:health4all/pages/user-side/profile/geninfo.dart';
 import 'package:health4all/pages/user-side/profile/healthinfo.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:health4all/api.dart';
+
+import '../../../baseUrl';
+import '../../../model/user_display.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -23,6 +30,25 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  String name = '';
+  String email = '';
+  // String photo = '';
+  void getdata() async {
+    User_display_Model data = await userdisplayApi().userdisplayList();
+    setState(() {
+      name = data.data![0].fullName.toString();
+     // photo = data.data![0].photo.toString();
+      email = data.data![0].email.toString();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getdata();
+  }
+
   int myIndex = 0;
   List pages = [const HomePg(), const Report(), const Cart(), const MorePg()];
 
@@ -123,7 +149,7 @@ class _ProfileState extends State<Profile> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Cody Fisher',
+                                  name,
                                   style: TextStyle(
                                       fontSize: 15.6.sp,
                                       color: Colors.white,
@@ -133,7 +159,7 @@ class _ProfileState extends State<Profile> {
                                   height: 1.h,
                                 ),
                                 Text(
-                                  'cody.fisher@example.com',
+                                  email,
                                   style: TextStyle(
                                       fontSize: 12.4.sp,
                                       fontWeight: FontWeight.w400,
@@ -460,6 +486,53 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
               ).paddingOnly(left: 9.w, right: 9.w),
+              SizedBox(
+                height: 3.34.h,
+              ),
+              Card(
+                elevation: 10,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(const Update1());
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 6.12.h,
+                    width: 90.w,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.49.w, vertical: 1.7.h),
+                          child: Icon(
+                            Icons.phone,
+                            color: fontblue2,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 2.5.w,
+                        ),
+                        Text(
+                          "Change number ",
+                          style: TextStyle(
+                            color: fontblue2,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12.4.sp,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 19.w,
+                        ),
+                        const Icon(Icons.keyboard_arrow_right)
+                      ],
+                    ),
+                  ),
+                ),
+              ).paddingOnly(left: 9.w, right: 9.w),
+              
               SizedBox(
                 height: 3.34.h,
               ),

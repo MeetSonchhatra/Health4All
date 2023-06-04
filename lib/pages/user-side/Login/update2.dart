@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
-import 'package:health4all/pages/Courier-side/Login/OTPD.dart';
-import 'package:health4all/pages/Courier-side/Login/SignupD.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:health4all/pages/user-side/Login/LoginPg.dart';
+import 'package:health4all/pages/user-side/Login/OTP.dart';
+import 'package:health4all/pages/user-side/Login/OTPU2.dart';
+import 'package:health4all/pages/user-side/Login/Signup.dart';
 import 'package:sizer/sizer.dart';
 
-class LoginD extends StatefulWidget {
-  const LoginD({super.key});
+class Update2 extends StatefulWidget {
+  const Update2({super.key});
 
   @override
-  State<LoginD> createState() => _LoginDState();
+  State<Update2> createState() => _Update2State();
 }
 
-class _LoginDState extends State<LoginD> {
+class _Update2State extends State<Update2> {
+  TextEditingController phone = TextEditingController();
   final formKey = GlobalKey<FormState>();
   String name = "";
   @override
@@ -30,7 +31,7 @@ class _LoginDState extends State<LoginD> {
             color: Colors.black,
             iconSize: 30,
             onPressed: () {
-              // Get.to(const LoginPage());
+              Get.to(const LoginPage());
             },
           )),
       body: SingleChildScrollView(
@@ -42,39 +43,17 @@ class _LoginDState extends State<LoginD> {
               SizedBox(
                 height: 1.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                        color: const Color.fromRGBO(51, 51, 51, 1),
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ).marginOnly(left: 10.w),
-              Row(
-                children: [
-                  Text(
-                    "to your HealthBuddy Account",
-                    style: TextStyle(
-                      color: const Color.fromRGBO(1, 82, 168, 1),
-                      fontSize: 16.sp,
-                    ),
-                  )
-                ],
-              ).marginOnly(left: 10.w),
+
               SizedBox(
                 height: 4.5.h,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(151, 117, 105, 1),
+                    backgroundColor: buttonblue,
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(30)),
                 child: const Icon(
-                  LineIcons.phoneVolume,
-                  color: whiteColor,
+                  Icons.phone,
                   size: 50,
                 ),
                 onPressed: () {},
@@ -85,7 +64,7 @@ class _LoginDState extends State<LoginD> {
               Row(
                 children: [
                   Text(
-                    "Enter your Mobile number",
+                    "Enter your New Mobile number",
                     style: TextStyle(
                       color: fontblack,
                       fontSize: 12.4.sp,
@@ -97,6 +76,7 @@ class _LoginDState extends State<LoginD> {
                 height: 1.h,
               ),
               TextFormField(
+                controller: phone,
                 keyboardType: const TextInputType.numberWithOptions(),
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(5.w, 0, 0, 0),
@@ -131,12 +111,12 @@ class _LoginDState extends State<LoginD> {
                 ],
               ).marginOnly(left: 10.w),
               SizedBox(
-                height: 4.h,
+                height: 3.h,
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(81.w, 5.25.h),
-                    backgroundColor: buttoncream,
+                    backgroundColor: buttonblue,
                     elevation: 0,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
@@ -146,19 +126,19 @@ class _LoginDState extends State<LoginD> {
                   ),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Get.to(OTPD());
+                      Get.to(OTPU2(phone: phone.text,));
                     }
                   },
                   child: const Text('Generate OTP')),
               SizedBox(
-                height: 6.h,
+                height: 4.h,
               ),
               Row(
                 children: [
                   const Text("Don't Have an Account? "),
                   TextButton(
                     onPressed: () {
-                      Get.to(const SignupD());
+                      Get.to(const Signup());
                     },
                     child: const Text(
                       'Sign Up',

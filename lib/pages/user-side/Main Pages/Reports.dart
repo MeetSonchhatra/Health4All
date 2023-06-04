@@ -32,7 +32,7 @@ class _ReportState extends State<Report> {
                 Text(
                   'Recent Reports',
                   style: TextStyle(
-                      color: Color.fromRGBO(14, 13, 18, 1),
+                      color: const Color.fromRGBO(14, 13, 18, 1),
                       fontSize: 12.4.sp,
                       fontWeight: FontWeight.w500),
                 ),
@@ -80,7 +80,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '11:11am',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -97,7 +97,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -127,7 +127,7 @@ class _ReportState extends State<Report> {
                       Text(
                         " delivered",
                         style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
+                          color: const Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
                           fontSize: 11.4.sp,
                         ),
@@ -138,7 +138,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '9:11am',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -154,7 +154,7 @@ class _ReportState extends State<Report> {
                 Text(
                   'A week ago',
                   style: TextStyle(
-                      color: Color.fromRGBO(14, 13, 18, 1),
+                      color: const Color.fromRGBO(14, 13, 18, 1),
                       fontSize: 12.4.sp,
                       fontWeight: FontWeight.w500),
                 ),
@@ -169,7 +169,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -198,7 +198,7 @@ class _ReportState extends State<Report> {
                       Text(
                         "delivered",
                         style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
+                          color: const Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
                           fontSize: 11.4.sp,
                         ),
@@ -209,7 +209,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '28/02/2023',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -226,7 +226,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -255,7 +255,7 @@ class _ReportState extends State<Report> {
                       Text(
                         "transit",
                         style: TextStyle(
-                          color: Color.fromRGBO(255, 194, 44, 1),
+                          color: const Color.fromRGBO(255, 194, 44, 1),
                           fontWeight: FontWeight.w400,
                           fontSize: 11.4.sp,
                         ),
@@ -266,7 +266,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '28/02/2023',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -283,7 +283,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -313,7 +313,7 @@ class _ReportState extends State<Report> {
                       Text(
                         " delivered",
                         style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
+                          color: const Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
                           fontSize: 11.4.sp,
                         ),
@@ -324,7 +324,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '28/02/2023',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -341,7 +341,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -370,7 +370,7 @@ class _ReportState extends State<Report> {
                       Text(
                         "delivered",
                         style: TextStyle(
-                          color: Color.fromRGBO(6, 173, 132, 1),
+                          color: const Color.fromRGBO(6, 173, 132, 1),
                           fontWeight: FontWeight.w400,
                           fontSize: 11.4.sp,
                         ),
@@ -381,7 +381,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '28/02/2023',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],
@@ -398,7 +398,7 @@ class _ReportState extends State<Report> {
                   borderRadius: BorderRadius.circular(60)),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(Results());
+                  Get.to(const Results());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -431,7 +431,7 @@ class _ReportState extends State<Report> {
                       Text(
                         '28/02/2023',
                         style: TextStyle(
-                            color: Color.fromRGBO(197, 197, 197, 1),
+                            color: const Color.fromRGBO(197, 197, 197, 1),
                             fontSize: 9.sp),
                       )
                     ],

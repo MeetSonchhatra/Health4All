@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
+import 'package:health4all/model/user_display.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/More.dart';
 import 'package:health4all/pages/user-side/profile/editprofile.dart';
@@ -8,6 +9,7 @@ import 'package:health4all/pages/user-side/profile/profile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../api.dart';
 import '../Main Pages/Cart.dart';
 import '../Main Pages/Reports.dart';
 
@@ -19,6 +21,23 @@ class HealthInfo extends StatefulWidget {
 }
 
 class _HealthInfoState extends State<HealthInfo> {
+  String blood_group = '';
+  String health_cond = '';
+
+  void getdata() async {
+    User_display_Model data = await userdisplayApi().userdisplayList();
+    //  final dataArray = data['health_candition'] as List<dynamic>;
+    setState(() {
+      blood_group = data.data![0].bloodGroup.toString();
+      health_cond = data.data![0].healthCandition.toString();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getdata();
+  }
   int myIndex = 0;
 
   @override
@@ -88,7 +107,7 @@ class _HealthInfoState extends State<HealthInfo> {
                     Text(
                       'Health Information',
                       style: TextStyle(
-                          fontSize: 12.4.sp, color: Color.fromRGBO(5, 27, 98, 1)),
+                          fontSize: 12.4.sp, color: const Color.fromRGBO(5, 27, 98, 1)),
                     ).marginOnly(left: 20),
                     SizedBox(
                       width: 29.w,
@@ -117,7 +136,7 @@ class _HealthInfoState extends State<HealthInfo> {
                             SizedBox(
                               width: 2.w,
                             ),
-                            Text(
+                            const Text(
                               'Edit',
                               style: TextStyle(fontSize: 12),
                             )
@@ -138,7 +157,7 @@ class _HealthInfoState extends State<HealthInfo> {
                     Text(
                       "Health Condition",
                       style: TextStyle(
-                        color: Color.fromRGBO(197, 197, 197, 1),
+                        color: const Color.fromRGBO(197, 197, 197, 1),
                         fontSize: 12.4.sp,
                       ),
                     )
@@ -152,15 +171,15 @@ class _HealthInfoState extends State<HealthInfo> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     height: 5.95.h,
                     width: 90.w,
                     child: Row(
                       children: [
                         Text(
-                          'Cody Fisher',
+                          health_cond,
                           style: TextStyle(
-                              color: Color.fromRGBO(63, 81, 81, 1),
+                              color: const Color.fromRGBO(63, 81, 81, 1),
                               fontSize: 12.4.sp),
                         ).marginOnly(left: 10.w)
                       ],
@@ -180,7 +199,7 @@ class _HealthInfoState extends State<HealthInfo> {
                     Text(
                       "Blood Group",
                       style: TextStyle(
-                        color: Color.fromRGBO(197, 197, 197, 1),
+                        color: const Color.fromRGBO(197, 197, 197, 1),
                         fontSize: 12.4.sp,
                       ),
                     )
@@ -194,15 +213,15 @@ class _HealthInfoState extends State<HealthInfo> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     height: 5.95.h,
                     width: 90.w,
                     child: Row(
                       children: [
                         Text(
-                          'cody.fisher@gmail.com',
+                          blood_group,
                           style: TextStyle(
-                              color: Color.fromRGBO(63, 81, 81, 1),
+                              color: const Color.fromRGBO(63, 81, 81, 1),
                               fontSize: 12.4.sp),
                         ).marginOnly(left: 10.w)
                       ],

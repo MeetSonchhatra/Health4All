@@ -1,43 +1,28 @@
-// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/api.dart';
-import 'package:health4all/model/LoginModel.dart';
-import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
+import 'package:health4all/pages/user-side/Login/update2.dart';
 import 'package:health4all/pages/user-side/Login/LoginM.dart';
 import 'package:health4all/pages/user-side/Login/Signup.dart';
-import 'package:health4all/pages/user-side/Main%20Pages/HomeM.dart';
 import 'package:sizer/sizer.dart';
 import '../../../consts/colors.dart';
-import 'package:quickalert/quickalert.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../../../model/changenoModel.dart';
 
-class OTP extends StatefulWidget {
-  const OTP({super.key, required this.phone});
+class OTPU1 extends StatefulWidget {
+  const OTPU1({super.key, required this.phone});
   final String phone;
   @override
-  State<OTP> createState() => _OTPState();
+  State<OTPU1> createState() => _OTPU1State();
 }
 
-class _OTPState extends State<OTP> {
+class _OTPU1State extends State<OTPU1> {
   TextEditingController otp1 = TextEditingController();
   TextEditingController otp2 = TextEditingController();
   TextEditingController otp3 = TextEditingController();
   TextEditingController otp4 = TextEditingController();
   TextEditingController otp5 = TextEditingController();
   TextEditingController otp6 = TextEditingController();
-  void showAlert() {
-    QuickAlert.show(
-        context: context,
-        type: QuickAlertType.success,
-        text: "We have successfully verified your number.",
-        confirmBtnText: "Welcome",
-        confirmBtnColor: Colors.green,
-        onConfirmBtnTap: () {
-          Get.to(const HomePg());
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,12 +130,12 @@ class _OTPState extends State<OTP> {
                       otp5.text +
                       otp6.text;
                   if (fOtp == "123456") {
-                    LoginModel data = await LoginApi().loginList(widget.phone);
-                    SharedPreferences preference = await SharedPreferences.getInstance(); 
-                      preference.setString("token",data.data!.token.toString());
-                    if (data.code == 200) {
-                      
-                      showAlert();
+                    changeno_Model data = await changenoApi().changenoList(widget.phone);
+                    if (data.code == 200) {        
+                      setState(() {
+                        Get.to(const Update2());
+                      });              
+                        
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(data.message.toString())));

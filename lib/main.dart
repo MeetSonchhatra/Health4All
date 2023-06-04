@@ -6,7 +6,6 @@ import 'package:health4all/consts/routes.dart';
 import 'package:health4all/pages/user-side/Login/splashscreen.dart';
 import 'package:sizer/sizer.dart';
 
-import 'pages/Courier-side/Login/splash.dart';
 
 void main() {
   runApp(const MyApp());

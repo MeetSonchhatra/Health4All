@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/api.dart';
 import 'package:health4all/model/LoginModel.dart';
+import 'package:health4all/pages/user-side/Login/update2.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
 import 'package:health4all/pages/user-side/Login/LoginM.dart';
 import 'package:health4all/pages/user-side/Login/Signup.dart';
@@ -13,14 +14,16 @@ import '../../../consts/colors.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class OTP extends StatefulWidget {
-  const OTP({super.key, required this.phone});
+import '../../../model/changenoModel.dart';
+
+class OTPU2 extends StatefulWidget {
+  const OTPU2({super.key, required this.phone});
   final String phone;
   @override
-  State<OTP> createState() => _OTPState();
+  State<OTPU2> createState() => _OTPU2State();
 }
 
-class _OTPState extends State<OTP> {
+class _OTPU2State extends State<OTPU2> {
   TextEditingController otp1 = TextEditingController();
   TextEditingController otp2 = TextEditingController();
   TextEditingController otp3 = TextEditingController();
@@ -31,8 +34,8 @@ class _OTPState extends State<OTP> {
     QuickAlert.show(
         context: context,
         type: QuickAlertType.success,
-        text: "We have successfully verified your number.",
-        confirmBtnText: "Welcome",
+        text: "We have successfully changed your number.",
+        confirmBtnText: "Back to Home",
         confirmBtnColor: Colors.green,
         onConfirmBtnTap: () {
           Get.to(const HomePg());
@@ -145,11 +148,8 @@ class _OTPState extends State<OTP> {
                       otp5.text +
                       otp6.text;
                   if (fOtp == "123456") {
-                    LoginModel data = await LoginApi().loginList(widget.phone);
-                    SharedPreferences preference = await SharedPreferences.getInstance(); 
-                      preference.setString("token",data.data!.token.toString());
+                    changeno_Model data = await changenoApi().changenoList(widget.phone);
                     if (data.code == 200) {
-                      
                       showAlert();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

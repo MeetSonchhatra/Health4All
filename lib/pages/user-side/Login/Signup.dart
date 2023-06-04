@@ -5,6 +5,7 @@ import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/user-side/Login/LoginM.dart';
 import 'package:health4all/pages/user-side/Login/LoginPg.dart';
 import 'package:health4all/pages/user-side/Login/OTP.dart';
+import 'package:health4all/pages/user-side/Login/OTP2.dart';
 import 'package:sizer/sizer.dart';
 import 'package:intl/intl.dart';
 
@@ -18,11 +19,18 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  TextEditingController nam = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController mobile = TextEditingController();
+  TextEditingController gendr = TextEditingController();
+  TextEditingController city = TextEditingController();
+  TextEditingController dob = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
   String name = "";
   DateTime? _selectedDate;
   final _gender = ["Male", "Female", "Other"];
-  String? _selectedVal = "Male";
+  String? _selectedVal ;
 
   final _city = [
     "Ahemdabad",
@@ -170,6 +178,7 @@ class _SignupState extends State<Signup> {
                   height: 1.2.h,
                 ),
                 TextFormField(
+                  controller: nam,
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10.w, top: 0.5.h),
                       border: OutlineInputBorder(
@@ -211,6 +220,7 @@ class _SignupState extends State<Signup> {
                   height: 1.h,
                 ),
                 TextFormField(
+                  controller: email,
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10.w, top: 0.5.h),
                       border: OutlineInputBorder(
@@ -253,6 +263,7 @@ class _SignupState extends State<Signup> {
                   height: 1.h,
                 ),
                 TextFormField(
+                  controller: mobile,
                   keyboardType: const TextInputType.numberWithOptions(),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10.w, top: 0.25.h),
@@ -343,6 +354,7 @@ class _SignupState extends State<Signup> {
                   height: 1.h,
                 ),
                 DropdownButtonFormField(
+                  
                   value: _selectedVal,
                   items: _gender
                       .map((e) => DropdownMenuItem(
@@ -454,7 +466,7 @@ class _SignupState extends State<Signup> {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        Get.to(LoginM());
+                        Get.to(OTP2(phone: mobile.text, nam: nam.text, email: email.text, gendr: _selectedVal.toString(), dob: _selectedDate.toString(), city: _selectedCity.toString()));
                       }
                     },
                     child: const Text('Register')),
