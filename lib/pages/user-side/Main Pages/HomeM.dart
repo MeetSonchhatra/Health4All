@@ -55,10 +55,10 @@ class _HomeMState extends State<HomeM> {
     });
   }
 
-  @override
-  void dispose() {
-    pageController.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   pageController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

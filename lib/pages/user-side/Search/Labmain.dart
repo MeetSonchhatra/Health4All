@@ -15,8 +15,8 @@ import '../Main Pages/Main Extra/Notifications.dart';
 import 'Search.dart';
 
 class LabMain extends StatefulWidget {
-  const LabMain({super.key});
-
+  const LabMain({super.key,  this.labname,  this.address,  this.id});
+ final String? labname,address,id;
   @override
   State<LabMain> createState() => _LabMainState();
 }
@@ -175,7 +175,7 @@ class _LabMainState extends State<LabMain> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(const LabMain());
+                Get.to( Book(id: widget.id.toString(),));
               },
               child: Stack(
                 children: [
@@ -197,55 +197,102 @@ class _LabMainState extends State<LabMain> {
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15)),
                         color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 2.26.h,
-                              width: 8.w,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 7, top: 3),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
+                    // child: Column(
+                    //   children: [
+                        
+                    //     Row(
+                    //       children: [
+                    //         Text(
+                    //           widget.labname.toString(),
+                    //           style: TextStyle(
+                    //               color: whiteColor,
+                    //               fontWeight: FontWeight.w500,
+                    //               fontSize: 15.6.sp),
+                    //         ),
+                    //         SizedBox(
+                    //           width: 15.w,
+                    //         ),
+                    //         Container(
+                    //           height: 2.26.h,
+                    //           width: 8.w,
+                    //           decoration: BoxDecoration(
+                    //               color: whiteColor,
+                    //               borderRadius: BorderRadius.circular(15)),
+                    //           child: Text(
+                    //             '4.2',
+                    //             style: TextStyle(
+                    //                 fontWeight: FontWeight.w500,
+                    //                 fontSize: 9.sp,
+                    //                 color: Color.fromRGBO(16, 122, 21, 1)),
+                    //           ).paddingOnly(left: 7, top: 3),
+                    //         )
+                    //       ],
+                    //     ).marginOnly(left: 5.w, right: 5.w),
+                    //     SizedBox(
+                    //       height: 0.5.h,
+                    //     ),
+                    //     Row(
+                    //       children: [
+                    //         Text(
+                    //           widget.address.toString(),
+                    //           style: TextStyle(
+                    //               fontWeight: FontWeight.w400,
+                    //               fontSize: 9.sp,
+                    //               color: Color.fromRGBO(255, 255, 255, 0.61)),
+                    //         ),
+                    //       ],
+                    //     ).marginOnly(left: 5.w, right: 5.w)
+                    //   ],
+                    // ),
+                    child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                        widget.labname.toString(),
+                                    style: TextStyle(
+                                        color: whiteColor,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15.6.sp),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  Text(
+                                    widget.address.toString(),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 9.sp,
+                                        color: Color.fromRGBO(
+                                            255, 255, 255, 0.61)),
+                                  ),
+                                ],
+                              ).marginOnly(left: 10.w, top: 1.5.h),
+                              Column(
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    width: 32,
+                                    decoration: BoxDecoration(
+                                        color: whiteColor,
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: Text(
+                                      '4.2',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 9.sp,
+                                          color:
+                                              Color.fromRGBO(16, 122, 21, 1)),
+                                    ).paddingOnly(left: 1.75.w, top: 0.34.h),
+                                  ),
+                                  
+                                ],
+                              ).marginOnly(right: 5.w, top: 1.5.h),
+                            ],
+                          ),
                   ).marginOnly(top: 18.7.h, left: 11.25.w)
                 ],
               ),
@@ -348,7 +395,7 @@ class _LabMainState extends State<LabMain> {
                       ),
                       IconButton(
                           onPressed: () {
-                            Get.to(const Book());
+                            Get.to( Book(id : widget.id.toString()));
                           },
                           icon: const Icon(Icons.add))
                     ],
@@ -397,7 +444,7 @@ class _LabMainState extends State<LabMain> {
                       ),
                       IconButton(
                           onPressed: () {
-                            Get.to(const Book());
+                            Get.to( Book(id : widget.id.toString()));
                           },
                           icon: const Icon(Icons.add))
                     ],
@@ -446,7 +493,7 @@ class _LabMainState extends State<LabMain> {
                       ),
                       IconButton(
                           onPressed: () {
-                            Get.to(const Book());
+                            Get.to( Book(id : widget.id.toString()));
                           },
                           icon: const Icon(Icons.add))
                     ],

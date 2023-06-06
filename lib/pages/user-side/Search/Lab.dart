@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health4all/api.dart';
 import 'package:health4all/consts/colors.dart';
+import 'package:health4all/model/basicdetailModel.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Cart.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Home.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/HomeM.dart';
@@ -26,6 +28,10 @@ class Lab extends StatefulWidget {
 final TextEditingController _searchText = TextEditingController();
 
 class _LabState extends State<Lab> {
+  String lab_name = '';
+  String lab_address = '';
+  String ID = '';
+
   int myIndex = 0;
   @override
   bool is_checked = false;
@@ -169,556 +175,467 @@ class _LabState extends State<Lab> {
         ),
       ),
       extendBody: true,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 2.h,
-            ),
-            Row(
-              children: [
-                Text(
-                  'Laboratory:',
-                  style: TextStyle(
-                      color: Color.fromRGBO(3, 9, 19, 1),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 11.4.sp),
-                ),
-              ],
-            ).marginOnly(left: 12.5.w),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
+      body: Column(
+        children: [
+          SizedBox(
+            height: 2.h,
+          ),
+          Row(
+            children: [
+              Text(
+                'Laboratory:',
+                style: TextStyle(
+                    color: Color.fromRGBO(3, 9, 19, 1),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 11.4.sp),
               ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const LabMain());
-              },
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(0),
-                    height: 12.h,
-                    width: 90.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/bgimg.png"),
-                            fit: BoxFit.fill)),
-                  ).marginOnly(left: 9.w, right: 9.w),
-                  Container(
-                    height: 9.2.h,
-                    width: 76.5.w,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        color: buttonblue),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Sharda Laboratory',
-                              style: TextStyle(
-                                  color: whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.6.sp),
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 32,
-                              decoration: BoxDecoration(
-                                  color: whiteColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Text(
-                                '4.2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 9.sp,
-                                    color: Color.fromRGBO(16, 122, 21, 1)),
-                              ).paddingOnly(left: 1.75.w, top: 0.34.h),
-                            )
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w),
-                        SizedBox(
-                          height: 0.5.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Gh-5, Gandhinagar, 5km away',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp,
-                                  color: Color.fromRGBO(255, 255, 255, 0.61)),
-                            ),
-                            SizedBox(
-                              width: 18.w,
-                            ),
-                            const Icon(
-                              Icons.verified_user_outlined,
-                              color: Color.fromRGBO(16, 122, 21, 1),
-                              size: 25,
-                            ),
-                          ],
-                        ).marginOnly(left: 5.w, right: 5.w)
-                      ],
-                    ),
-                  ).marginOnly(top: 2.95.h, left: 11.25.w)
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 100,
-            )
-          ],
-        ),
+            ],
+          ).marginOnly(left: 12.5.w),
+          SizedBox(
+            height: 2.h,
+          ),
+          LabMainPg(),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.to(const LabMain());
+          //   },
+          //   child: Stack(
+          //     children: [
+          //       Container(
+          //         padding: const EdgeInsets.all(0),
+          //         height: 12.h,
+          //         width: 90.w,
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20),
+          //             image: const DecorationImage(
+          //                 image: AssetImage("assets/bgimg.png"),
+          //                 fit: BoxFit.fill)),
+          //       ).marginOnly(left: 9.w, right: 9.w),
+          //       Container(
+          //         height: 9.2.h,
+          //         width: 76.5.w,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.only(
+          //                 topLeft: Radius.circular(10),
+          //                 topRight: Radius.circular(10)),
+          //             color: buttonblue),
+          //         child: Column(
+          //           children: [
+          //             SizedBox(
+          //               height: 2.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Sharda Laboratory',
+          //                   style: TextStyle(
+          //                       color: whiteColor,
+          //                       fontWeight: FontWeight.w500,
+          //                       fontSize: 15.6.sp),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 15.w,
+          //                 ),
+          //                 Container(
+          //                   height: 20,
+          //                   width: 32,
+          //                   decoration: BoxDecoration(
+          //                       color: whiteColor,
+          //                       borderRadius: BorderRadius.circular(15)),
+          //                   child: Text(
+          //                     '4.2',
+          //                     style: TextStyle(
+          //                         fontWeight: FontWeight.w500,
+          //                         fontSize: 9.sp,
+          //                         color: Color.fromRGBO(16, 122, 21, 1)),
+          //                   ).paddingOnly(left: 1.75.w, top: 0.34.h),
+          //                 )
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w),
+          //             SizedBox(
+          //               height: 0.5.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Gh-5, Gandhinagar, 5km away',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.w400,
+          //                       fontSize: 9.sp,
+          //                       color: Color.fromRGBO(255, 255, 255, 0.61)),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 18.w,
+          //                 ),
+          //                 const Icon(
+          //                   Icons.verified_user_outlined,
+          //                   color: Color.fromRGBO(16, 122, 21, 1),
+          //                   size: 25,
+          //                 ),
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w)
+          //           ],
+          //         ),
+          //       ).marginOnly(top: 2.95.h, left: 11.25.w)
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 2.h,
+          // ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.to(const LabMain());
+          //   },
+          //   child: Stack(
+          //     children: [
+          //       Container(
+          //         padding: const EdgeInsets.all(0),
+          //         height: 12.h,
+          //         width: 90.w,
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20),
+          //             image: const DecorationImage(
+          //                 image: AssetImage("assets/bgimg.png"),
+          //                 fit: BoxFit.fill)),
+          //       ).marginOnly(left: 9.w, right: 9.w),
+          //       Container(
+          //         height: 9.2.h,
+          //         width: 76.5.w,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.only(
+          //                 topLeft: Radius.circular(10),
+          //                 topRight: Radius.circular(10)),
+          //             color: buttonblue),
+          //         child: Column(
+          //           children: [
+          //             SizedBox(
+          //               height: 2.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Sharda Laboratory',
+          //                   style: TextStyle(
+          //                       color: whiteColor,
+          //                       fontWeight: FontWeight.w500,
+          //                       fontSize: 15.6.sp),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 15.w,
+          //                 ),
+          //                 Container(
+          //                   height: 20,
+          //                   width: 32,
+          //                   decoration: BoxDecoration(
+          //                       color: whiteColor,
+          //                       borderRadius: BorderRadius.circular(15)),
+          //                   child: Text(
+          //                     '4.2',
+          //                     style: TextStyle(
+          //                         fontWeight: FontWeight.w500,
+          //                         fontSize: 9.sp,
+          //                         color: Color.fromRGBO(16, 122, 21, 1)),
+          //                   ).paddingOnly(left: 1.75.w, top: 0.34.h),
+          //                 )
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w),
+          //             SizedBox(
+          //               height: 0.5.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Gh-5, Gandhinagar, 5km away',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.w400,
+          //                       fontSize: 9.sp,
+          //                       color: Color.fromRGBO(255, 255, 255, 0.61)),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 18.w,
+          //                 ),
+          //                 const Icon(
+          //                   Icons.verified_user_outlined,
+          //                   color: Color.fromRGBO(16, 122, 21, 1),
+          //                   size: 25,
+          //                 ),
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w)
+          //           ],
+          //         ),
+          //       ).marginOnly(top: 2.95.h, left: 11.25.w)
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 2.h,
+          // ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.to(const LabMain());
+          //   },
+          //   child: Stack(
+          //     children: [
+          //       Container(
+          //         padding: const EdgeInsets.all(0),
+          //         height: 12.h,
+          //         width: 90.w,
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20),
+          //             image: const DecorationImage(
+          //                 image: AssetImage("assets/bgimg.png"),
+          //                 fit: BoxFit.fill)),
+          //       ).marginOnly(left: 9.w, right: 9.w),
+          //       Container(
+          //         height: 9.2.h,
+          //         width: 76.5.w,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.only(
+          //                 topLeft: Radius.circular(10),
+          //                 topRight: Radius.circular(10)),
+          //             color: buttonblue),
+          //         child: Column(
+          //           children: [
+          //             SizedBox(
+          //               height: 2.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Sharda Laboratory',
+          //                   style: TextStyle(
+          //                       color: whiteColor,
+          //                       fontWeight: FontWeight.w500,
+          //                       fontSize: 15.6.sp),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 15.w,
+          //                 ),
+          //                 Container(
+          //                   height: 20,
+          //                   width: 32,
+          //                   decoration: BoxDecoration(
+          //                       color: whiteColor,
+          //                       borderRadius: BorderRadius.circular(15)),
+          //                   child: Text(
+          //                     '4.2',
+          //                     style: TextStyle(
+          //                         fontWeight: FontWeight.w500,
+          //                         fontSize: 9.sp,
+          //                         color: Color.fromRGBO(16, 122, 21, 1)),
+          //                   ).paddingOnly(left: 1.75.w, top: 0.34.h),
+          //                 )
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w),
+          //             SizedBox(
+          //               height: 0.5.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Gh-5, Gandhinagar, 5km away',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.w400,
+          //                       fontSize: 9.sp,
+          //                       color: Color.fromRGBO(255, 255, 255, 0.61)),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 18.w,
+          //                 ),
+          //                 const Icon(
+          //                   Icons.verified_user_outlined,
+          //                   color: Color.fromRGBO(16, 122, 21, 1),
+          //                   size: 25,
+          //                 ),
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w)
+          //           ],
+          //         ),
+          //       ).marginOnly(top: 2.95.h, left: 11.25.w)
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 2.h,
+          // ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.to(const LabMain());
+          //   },
+          //   child: Stack(
+          //     children: [
+          //       Container(
+          //         padding: const EdgeInsets.all(0),
+          //         height: 12.h,
+          //         width: 90.w,
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20),
+          //             image: const DecorationImage(
+          //                 image: AssetImage("assets/bgimg.png"),
+          //                 fit: BoxFit.fill)),
+          //       ).marginOnly(left: 9.w, right: 9.w),
+          //       Container(
+          //         height: 9.2.h,
+          //         width: 76.5.w,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.only(
+          //                 topLeft: Radius.circular(10),
+          //                 topRight: Radius.circular(10)),
+          //             color: buttonblue),
+          //         child: Column(
+          //           children: [
+          //             SizedBox(
+          //               height: 2.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Sharda Laboratory',
+          //                   style: TextStyle(
+          //                       color: whiteColor,
+          //                       fontWeight: FontWeight.w500,
+          //                       fontSize: 15.6.sp),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 15.w,
+          //                 ),
+          //                 Container(
+          //                   height: 20,
+          //                   width: 32,
+          //                   decoration: BoxDecoration(
+          //                       color: whiteColor,
+          //                       borderRadius: BorderRadius.circular(15)),
+          //                   child: Text(
+          //                     '4.2',
+          //                     style: TextStyle(
+          //                         fontWeight: FontWeight.w500,
+          //                         fontSize: 9.sp,
+          //                         color: Color.fromRGBO(16, 122, 21, 1)),
+          //                   ).paddingOnly(left: 1.75.w, top: 0.34.h),
+          //                 )
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w),
+          //             SizedBox(
+          //               height: 0.5.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Gh-5, Gandhinagar, 5km away',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.w400,
+          //                       fontSize: 9.sp,
+          //                       color: Color.fromRGBO(255, 255, 255, 0.61)),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 18.w,
+          //                 ),
+          //                 const Icon(
+          //                   Icons.verified_user_outlined,
+          //                   color: Color.fromRGBO(16, 122, 21, 1),
+          //                   size: 25,
+          //                 ),
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w)
+          //           ],
+          //         ),
+          //       ).marginOnly(top: 2.95.h, left: 11.25.w)
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 2.h,
+          // ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.to(const LabMain());
+          //   },
+          //   child: Stack(
+          //     children: [
+          //       Container(
+          //         padding: const EdgeInsets.all(0),
+          //         height: 12.h,
+          //         width: 90.w,
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20),
+          //             image: const DecorationImage(
+          //                 image: AssetImage("assets/bgimg.png"),
+          //                 fit: BoxFit.fill)),
+          //       ).marginOnly(left: 9.w, right: 9.w),
+          //       Container(
+          //         height: 9.2.h,
+          //         width: 76.5.w,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.only(
+          //                 topLeft: Radius.circular(10),
+          //                 topRight: Radius.circular(10)),
+          //             color: buttonblue),
+          //         child: Column(
+          //           children: [
+          //             SizedBox(
+          //               height: 2.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Sharda Laboratory',
+          //                   style: TextStyle(
+          //                       color: whiteColor,
+          //                       fontWeight: FontWeight.w500,
+          //                       fontSize: 15.6.sp),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 15.w,
+          //                 ),
+          //                 Container(
+          //                   height: 20,
+          //                   width: 32,
+          //                   decoration: BoxDecoration(
+          //                       color: whiteColor,
+          //                       borderRadius: BorderRadius.circular(15)),
+          //                   child: Text(
+          //                     '4.2',
+          //                     style: TextStyle(
+          //                         fontWeight: FontWeight.w500,
+          //                         fontSize: 9.sp,
+          //                         color: Color.fromRGBO(16, 122, 21, 1)),
+          //                   ).paddingOnly(left: 1.75.w, top: 0.34.h),
+          //                 )
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w),
+          //             SizedBox(
+          //               height: 0.5.h,
+          //             ),
+          //             Row(
+          //               children: [
+          //                 Text(
+          //                   'Gh-5, Gandhinagar, 5km away',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.w400,
+          //                       fontSize: 9.sp,
+          //                       color: Color.fromRGBO(255, 255, 255, 0.61)),
+          //                 ),
+          //                 SizedBox(
+          //                   width: 18.w,
+          //                 ),
+          //                 const Icon(
+          //                   Icons.verified_user_outlined,
+          //                   color: Color.fromRGBO(16, 122, 21, 1),
+          //                   size: 25,
+          //                 ),
+          //               ],
+          //             ).marginOnly(left: 5.w, right: 5.w)
+          //           ],
+          //         ),
+          //       ).marginOnly(top: 2.95.h, left: 11.25.w)
+          //     ],
+          //   ),
+          // ),
+          const SizedBox(
+            height: 100,
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
@@ -774,5 +691,122 @@ class _LabState extends State<Lab> {
             ),
           ]),
     ));
+  }
+}
+
+class LabMainPg extends StatelessWidget {
+  const LabMainPg({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Basicdetail_Model>(
+      future: basicdetailsApi().basicdetailsList(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Expanded(
+            child: ListView.builder(
+              itemCount: snapshot.data!.data!.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to( LabMain(labname: snapshot.data!.data![index].companyName.toString() , address: snapshot.data!.data![index].address.toString(), id: snapshot.data!.data![index].sId.toString(),));
+                    },
+                    child: Stack(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(0),
+                          height: 12.h,
+                          width: 90.w,
+
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: const DecorationImage(
+                                  image: AssetImage("assets/bgimg.png"),
+                                  fit: BoxFit.fill)),
+                        ).marginOnly(left: 9.w, right: 9.w),
+                        Container(
+                          height: 9.2.h,
+                          width: 76.5.w,
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              color: buttonblue),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    snapshot.data!.data![index].companyName.toString(),
+                                    style: TextStyle(
+                                        color: whiteColor,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15.6.sp),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  Text(
+                                    snapshot.data!.data![index].address
+                                        .toString(),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 9.sp,
+                                        color: Color.fromRGBO(
+                                            255, 255, 255, 0.61)),
+                                  ),
+                                ],
+                              ).marginOnly(left: 10.w, top: 1.5.h),
+                              Column(
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    width: 32,
+                                    decoration: BoxDecoration(
+                                        color: whiteColor,
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: Text(
+                                      '4.2',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 9.sp,
+                                          color:
+                                              Color.fromRGBO(16, 122, 21, 1)),
+                                    ).paddingOnly(left: 1.75.w, top: 0.34.h),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  const Icon(
+                                    Icons.verified_user_outlined,
+                                    color: Color.fromRGBO(16, 122, 21, 1),
+                                    size: 25,
+                                  ),
+                                ],
+                              ).marginOnly(right: 5.w, top: 1.5.h),
+                            ],
+                          ),
+                        ).marginOnly(top: 2.95.h, left: 11.25.w),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        return CircularProgressIndicator();
+      },
+    );
   }
 }

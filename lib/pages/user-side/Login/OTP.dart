@@ -155,7 +155,7 @@ class _OTPState extends State<OTP> {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(data.message.toString())));
                     }
-                  } else {
+                  } else { 
                     Text('OTP INVALID');
                   }
                 },
