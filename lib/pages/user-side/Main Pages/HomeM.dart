@@ -101,7 +101,7 @@ class _HomeMState extends State<HomeM> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(const Recent());
+                      Get.to(() => Recent());
                     },
                     child: Text(
                       'View all',
@@ -159,6 +159,7 @@ class _HomeMState extends State<HomeM> {
                   ],
                 ).marginOnly(left: 5.w),
               ),
+
               SizedBox(
                 height: 4.h,
               ),
@@ -177,7 +178,7 @@ class _HomeMState extends State<HomeM> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(const Popular());
+                      Get.to(()=> Popular());
                     },
                     child: Text(
                       'View all',
@@ -230,83 +231,139 @@ class _HomeMState extends State<HomeM> {
               SizedBox(
                 height: 1.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    'Rapid Basic Test',
-                    style: TextStyle(
-                      color: fontblack,
-                      fontSize: 12.4.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ).marginOnly(left: 10.w),
-                  SizedBox(
-                    width: 33.w,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Get.to(const RapidTest());
-                    },
-                    child: Text(
-                      'View all',
-                      style: TextStyle(
-                          color: fontblue,
-                          fontSize: 11.4.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+              // Row(
+              //   children: [
+              //     Text(
+              //       'Rapid Basic Test',
+              //       style: TextStyle(
+              //         color: fontblack,
+              //         fontSize: 12.4.sp,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ).marginOnly(left: 10.w),
+              //     SizedBox(
+              //       width: 33.w,
+              //     ),
+              //     TextButton(
+              //       onPressed: () {
+              //         Get.to(const RapidTest());
+              //       },
+              //       child: Text(
+              //         'View all',
+              //         style: TextStyle(
+              //             color: fontblue,
+              //             fontSize: 11.4.sp,
+              //             fontWeight: FontWeight.w500),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 1.h,
+              // ),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.start,
+              //     children: [
+              //       RecommendedTest(
+              //         image: "assets/coronavirus.png",
+              //         title: "Covid 19",
+              //         press: () {
+              //           Get.to(const RapidTest());
+              //         },
+              //       ),
+              //       RecommendedTest(
+              //         image: "assets/blood-drop.png",
+              //         title: "Blood Test",
+              //         press: () {
+              //           Get.to(const RapidTest());
+              //         },
+              //       ),
+              //       RecommendedTest(
+              //         image: "assets/coronavirus.png",
+              //         title: "Covid 19",
+              //         press: () {
+              //           Get.to(const RapidTest());
+              //         },
+              //       ),
+              //       RecommendedTest(
+              //         image: "assets/coronavirus.png",
+              //         title: "Covid 19",
+              //         press: () {
+              //           Get.to(const RapidTest());
+              //         },
+              //       ),
+              //       RecommendedTest(
+              //         image: "assets/blood-drop.png",
+              //         title: "Blood Test",
+              //         press: () {
+              //           Get.to(const RapidTest());
+              //         },
+              //       ),
+              //       RecommendedTest(
+              //         image: "assets/blood-drop.png",
+              //         title: "Blood Test",
+              //         press: () {},
+              //       ),
+              //     ],
+              //   ).marginOnly(left: 5.w),
+              // ),
+              Container(
+                height: 15.h,
+                width: 82.w,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(25, 167, 206, 1),
+                    borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    RecommendedTest(
-                      image: "assets/coronavirus.png",
-                      title: "Covid 19",
-                      press: () {
-                        Get.to(const RapidTest());
-                      },
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Recent Tests',
+                          style: TextStyle(
+                              color: whiteColor,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(25, 25),
+                              backgroundColor: whiteColor,
+                              elevation: 0,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              Get.to(() => RapidTest());
+                            },
+                            child: Text(
+                              'View all',
+                              style: TextStyle(
+                                  fontSize: 11.05.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(25, 167, 206, 1)),
+                            ))
+                      ],
+                    ).marginOnly(left: 5.w, top: 2.5.h),
+                    SizedBox(
+                      width: 18.w,
                     ),
-                    RecommendedTest(
-                      image: "assets/blood-drop.png",
-                      title: "Blood Test",
-                      press: () {
-                        Get.to(const RapidTest());
-                      },
-                    ),
-                    RecommendedTest(
-                      image: "assets/coronavirus.png",
-                      title: "Covid 19",
-                      press: () {
-                        Get.to(const RapidTest());
-                      },
-                    ),
-                    RecommendedTest(
-                      image: "assets/coronavirus.png",
-                      title: "Covid 19",
-                      press: () {
-                        Get.to(const RapidTest());
-                      },
-                    ),
-                    RecommendedTest(
-                      image: "assets/blood-drop.png",
-                      title: "Blood Test",
-                      press: () {
-                        Get.to(const RapidTest());
-                      },
-                    ),
-                    RecommendedTest(
-                      image: "assets/blood-drop.png",
-                      title: "Blood Test",
-                      press: () {},
-                    ),
+                    Column(
+                      children: [
+                        Image.asset("assets/done.png"),
+                      ],
+                    ).marginOnly(top: 2.5.h)
                   ],
-                ).marginOnly(left: 5.w),
+                ),
               ),
               SizedBox(
                 height: 2.h,

@@ -14,6 +14,9 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
+
+  String time = "09:00 AM";
+  String amount = "999"; 
   int itemCount = 0;
   @override
   Widget build(BuildContext context) {
@@ -715,7 +718,7 @@ class _CartState extends State<Cart> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(const Payment());
+                Get.to( Payment(amount: amount, time: time,));
               },
               child: Container(
                 height: 5.h,

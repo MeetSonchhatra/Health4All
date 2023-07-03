@@ -627,7 +627,9 @@ class _BookNameState extends State<BookName> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          snapshot.data!.data![index].companyName.toString(),
+                                          snapshot
+                                              .data!.data![index].companyName
+                                              .toString(),
                                           style: TextStyle(
                                               color: whiteColor,
                                               fontWeight: FontWeight.w500,
@@ -637,7 +639,8 @@ class _BookNameState extends State<BookName> {
                                           height: 1.h,
                                         ),
                                         Text(
-                                          snapshot.data!.data![index].address.toString(),
+                                          snapshot.data!.data![index].address
+                                              .toString(),
                                           style: TextStyle(
                                               fontWeight: FontWeight.w400,
                                               fontSize: 9.sp,
@@ -678,7 +681,7 @@ class _BookNameState extends State<BookName> {
                                         bottomRight: Radius.circular(15))),
                                 child: Container(
                                   padding: const EdgeInsets.all(0),
-                                  height: 56.69.h,
+                                  height: 62.h,
                                   width: 76.5.w,
                                   decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.only(
@@ -938,7 +941,7 @@ class _BookNameState extends State<BookName> {
                                                     fontSize: 12.4.sp),
                                               )),
                                           SizedBox(
-                                            width: 8.w,
+                                            width: 4.w,
                                           ),
                                           ElevatedButton(
                                               style: ElevatedButton.styleFrom(

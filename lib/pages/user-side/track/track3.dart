@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:sizer/sizer.dart';
+import '../../../api.dart';
 import '../../../consts/colors.dart';
+import '../../../model/reviewmodel.dart';
 import '../Main Pages/Cart.dart';
 import '../Main Pages/Home.dart';
 import '../Main Pages/Main Extra/Notifications.dart';
@@ -10,6 +14,7 @@ import '../Main Pages/More.dart';
 import '../Main Pages/Reports.dart';
 import '../Search/Search.dart';
 import '../profile/profile.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Track3 extends StatefulWidget {
   const Track3({super.key});
@@ -19,6 +24,20 @@ class Track3 extends StatefulWidget {
 }
 
 class _Track3State extends State<Track3> {
+  double rating = 0;
+  TextEditingController review = TextEditingController();
+  void showAlert(String rew) {
+    QuickAlert.show(
+        context: context,
+        type: QuickAlertType.success,
+        text: "Review has been submitted succesfully",
+        confirmBtnText: "Home",
+        confirmBtnColor: buttonblue,
+        onConfirmBtnTap: () {
+          Get.to(const HomePg());
+        });
+  }
+
   String name = "";
   int myIndex = 0;
   int _index = 0;
@@ -299,7 +318,8 @@ class _Track3State extends State<Track3> {
                                                 child: Text(
                                                   '4.2',
                                                   style: TextStyle(
-                                                      fontWeight: FontWeight.w500,
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                       fontSize: 9.sp,
                                                       color: Color.fromRGBO(
                                                           16, 122, 21, 1)),
@@ -333,25 +353,39 @@ class _Track3State extends State<Track3> {
                                 SizedBox(
                                   width: 15.w,
                                 ),
-                                const Icon(
-                                  LineIcons.starAlt,
-                                  color: Colors.yellow,
-                                ),
-                                const Icon(
-                                  LineIcons.starAlt,
-                                  color: Colors.yellow,
-                                ),
-                                const Icon(
-                                  LineIcons.starAlt,
-                                  color: Colors.yellow,
-                                ),
-                                const Icon(
-                                  LineIcons.starAlt,
-                                  color: Colors.yellow,
-                                ),
-                                const Icon(
-                                  LineIcons.starAlt,
-                                  color: Colors.grey,
+                                // const Icon(
+                                //   LineIcons.starAlt,
+                                //   color: Colors.yellow,
+                                // ),
+                                // const Icon(
+                                //   LineIcons.starAlt,
+                                //   color: Colors.yellow,
+                                // ),
+                                // const Icon(
+                                //   LineIcons.starAlt,
+                                //   color: Colors.yellow,
+                                // ),
+                                // const Icon(
+                                //   LineIcons.starAlt,
+                                //   color: Colors.yellow,
+                                // ),
+                                // const Icon(
+                                //   LineIcons.starAlt,
+                                //   color: Colors.grey,
+                                // )
+                                RatingBar.builder(
+                                  minRating: 1,
+                                  itemSize: 24,
+                                  updateOnDrag: true,
+                                  unratedColor:
+                                      Color.fromRGBO(217, 217, 217, 1),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Color.fromRGBO(255, 168, 0, 1),
+                                  ),
+                                  onRatingUpdate: (rating) => setState(() {
+                                    this.rating = rating;
+                                  }),
                                 )
                               ],
                             ),
@@ -373,6 +407,7 @@ class _Track3State extends State<Track3> {
                               height: 1.h,
                             ),
                             TextFormField(
+                              controller: review,
                               keyboardType: TextInputType.multiline,
                               maxLines: 2,
                               decoration: InputDecoration(
@@ -382,8 +417,8 @@ class _Track3State extends State<Track3> {
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
                                       borderSide: const BorderSide(
-                                          color:
-                                              Color.fromRGBO(234, 233, 234, 1)))),
+                                          color: Color.fromRGBO(
+                                              234, 233, 234, 1)))),
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Address cannot be null';
@@ -394,7 +429,8 @@ class _Track3State extends State<Track3> {
                                 name = value;
                                 setState(() {});
                               },
-                            ).paddingSymmetric(horizontal: 9.w, vertical: 0.23.h),
+                            ).paddingSymmetric(
+                                horizontal: 9.w, vertical: 0.23.h),
                             SizedBox(
                               height: 1.h,
                             ),
@@ -429,8 +465,17 @@ class _Track3State extends State<Track3> {
                                         minimumSize: const Size(145, 44),
                                         backgroundColor: buttonblue,
                                         elevation: 8),
-                                    onPressed: () {
-                                      Get.to(const HomePg());
+                                    onPressed: () async {
+                                      Review_Model data = await ReviewApi()
+                                          .ReviewList(rating.toString());
+                                      if (data.code == 200) {
+                                        Get.to(HomePg());
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content: Text(
+                                                    data.message.toString())));
+                                      }
                                     },
                                     child: Text(
                                       'Submit',

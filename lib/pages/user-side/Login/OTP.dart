@@ -148,8 +148,7 @@ class _OTPState extends State<OTP> {
                     LoginModel data = await LoginApi().loginList(widget.phone);
                     SharedPreferences preference = await SharedPreferences.getInstance(); 
                       preference.setString("token",data.data!.token.toString());
-                    if (data.code == 200) {
-                      
+                    if (data.code == 200) {                      
                       showAlert();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

@@ -178,7 +178,7 @@ class _SearchState extends State<Search> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Container(
               width: 75.w,
-              height: 54.5.h,
+              height: 60.h,
               child: Column(
                 children: [
                   Row(

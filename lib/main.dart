@@ -6,7 +6,6 @@ import 'package:health4all/consts/routes.dart';
 import 'package:health4all/pages/user-side/Login/splashscreen.dart';
 import 'package:sizer/sizer.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -71,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
+        // Here we take the valuethe MyHomePage object that was created
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),

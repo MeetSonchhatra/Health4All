@@ -5,7 +5,9 @@ import 'package:health4all/consts/alertdialog.dart';
 import 'package:health4all/pages/user-side/Main%20Pages/Cart.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
+import '../../../../api.dart';
 import '../../../../consts/colors.dart';
+import '../../../../model/appointmentbookingmodel.dart';
 import '../../Search/Search.dart';
 import '../../profile/profile.dart';
 import '../HomeM.dart';
@@ -13,15 +15,27 @@ import '../More.dart';
 import '../Reports.dart';
 import 'Notifications.dart';
 import 'orderhistory.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
 
 class Payment extends StatefulWidget {
-  const Payment({super.key});
+  const Payment({super.key, required this.amount, required this.time});
+  final String time, amount;
 
   @override
   State<Payment> createState() => _PaymentState();
 }
 
 class _PaymentState extends State<Payment> {
+
+  @override
+  void initState(){
+    super.initState();
+    Noti.initialize(flutterLocalNotificationsPlugin);
+  } 
   int itemCount = 0;
   int num = 0;
   var padding = const EdgeInsets.symmetric(horizontal: 18, vertical: 5);
@@ -595,14 +609,7 @@ class _PaymentState extends State<Payment> {
                                 ),
                               ),
                             ),
-                            onPressed: () {
-                              //                   showDialog(
-                              //   context: context,
-                              //   builder: (BuildContext context) {
-                              //     return CustomDialog();
-                              //   },
-                              // );
-                            },
+                            onPressed: () {},
                             child: Text(
                               'Buy Rs: 999/-',
                               style: TextStyle(
@@ -650,13 +657,21 @@ class _PaymentState extends State<Payment> {
               height: 2.h,
             ),
             GestureDetector(
-              onDoubleTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return CustomDialog();
-                  },
-                );
+              onTap: () async {
+                appointmentbooking_Model data = await AptbookingApi()
+                    .AptbookingList(widget.time, widget.amount);
+                if (data.code == 200) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomDialog();
+                    },
+                  );
+                  Noti.showBigTextNotification(title: "Booking confirmed", body: "Your booking has been confirmed", fln: flutterLocalNotificationsPlugin);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(data.message.toString())));
+                }
               },
               child: Container(
                 height: 5.h,
