@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health4all/consts/colors.dart';
 import 'package:health4all/pages/user-side/Login/LoginPg.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:sizer/sizer.dart';
 
 class Onboarding extends StatelessWidget {
@@ -10,139 +9,97 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Container(
-      color: whiteColor,
-      child: Scaffold(
-        body: Column(
-          children: [
-            SizedBox(
-              height: 4.76.h,
-            ),
-            Container(
-                margin: EdgeInsets.fromLTRB(4.30.w, 0, 4.30.w, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Welcome to",
-                      style: TextStyle(
-                        fontSize: 19.2.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        color: const Color.fromRGBO(14, 13, 18, 1),
-                      ),
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 10.h),
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            RichText(
+              text: TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Welcome to ',
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontFamily: 'Roboto',
+                      color: const Color.fromRGBO(14, 13, 18, 1),
                     ),
-                    Text(
-                      " Health4All",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 19.4.sp,
-                        fontFamily: 'Roboto',
-                        color: const Color.fromRGBO(30, 59, 141, 1),
-                      ),
+                  ),
+                  TextSpan(
+                    text: 'Health4All',
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontFamily: 'Roboto',
+                      color: const Color.fromRGBO(30, 59, 141, 1),
                     ),
-                  ],
-                )),
-            SizedBox(
-              height: 1.h,
+                  ),
+                ],
+              ),
             ),
-            Container(
-                margin: const EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Convienient care at your fingertips",
-                      style: TextStyle(
-                        fontSize: 11.5.sp,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Roboto',
-                        color: const Color.fromRGBO(1, 82, 168, 1),
-                      ),
-                    ),
-                  ],
-                )),
-            SizedBox(
-              height: 49.32.h,
+            Text(
+              "Convienient care at your fingertips",
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: 'Roboto',
+                color: const Color.fromRGBO(1, 82, 168, 1),
+              ),
             ),
-            Container(
-                margin: const EdgeInsets.fromLTRB(18.5, 0, 18.5, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Your health our priority",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        color: const Color.fromRGBO(15, 15, 15, 1),
-                      ),
-                    ),
-                  ],
-                )),
-            SizedBox(
-              height: 1.7.h,
-            ),
-            SizedBox(
-              height: 10.h,
-              width: 60.93.w,
-              child: Text(
-                "Experience optimal care and exceptional service with our trusted medical app.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
-                  color: const Color.fromRGBO(134, 133, 136, 1),
-                ),
+            const Spacer(),
+            Text(
+              "Your health our priority",
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontFamily: 'Roboto',
+                color: const Color.fromRGBO(15, 15, 15, 1),
               ),
             ),
             SizedBox(
-              height: 3.6.h,
+              height: 2.h,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(36.51.w, 4.53.h),
-                backgroundColor: buttonblue,
-                elevation: 0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50),
+            Text(
+              "Experience optimal care and exceptional service with our trusted medical app.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 13.sp,
+                fontFamily: 'Roboto',
+                color: const Color.fromRGBO(134, 133, 136, 1),
+              ),
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(170, 44),
+                  backgroundColor: buttonblue,
+                  elevation: 0,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                Get.to(const LoginPage());
-              },
-              child: SizedBox(
-                height: 5.h,
-                width: 35.w,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 1.86.w, horizontal: 0.91.h),
-                      child: Text(
-                        "Get Started",
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 2.w,
-                    ),
-                    const Icon(
-                      LineIcons.arrowRight,
-                      size: 29.0,
-                    )
-                  ],
+                onPressed: () {
+                  Get.to(const LoginPage());
+                },
+                icon: const Icon(
+                  Icons.arrow_right_alt_sharp,
+                  size: 29.0,
+                ),
+                label: const Text(
+                  "Get Started",
+                  textAlign: TextAlign.start,
                 ),
               ),
             ),
           ],
         ),
       ),
-    ));
+    );
   }
 }

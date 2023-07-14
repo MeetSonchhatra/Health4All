@@ -20,52 +20,39 @@ class _LoginMState extends State<LoginM> {
   String name = "";
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
+      backgroundColor: whiteColor,
       appBar: AppBar(
-          elevation: 0,
-          backgroundColor: whiteColor,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_circle_left),
-            color: Colors.black,
-            iconSize: 30,
-            onPressed: () {
-              Get.to(const LoginPage());
-            },
-          )),
+        elevation: 0,
+        backgroundColor: whiteColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_circle_left_rounded),
+          color: const Color.fromRGBO(1, 82, 168, 1),
+          onPressed: () {
+            Get.to(const LoginPage());
+          },
+        ),
+      ),
       body: SingleChildScrollView(
         child: Form(
           key: formKey,
-          child: Container(
-            color: whiteColor,
-            child: Column(children: [
-              SizedBox(
-                height: 1.h,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Login",
+                style: TextStyle(
+                  color: const Color.fromRGBO(51, 51, 51, 1),
+                  fontSize: 15.6.sp,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              Row(
-                children: [
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                        color: const Color.fromRGBO(51, 51, 51, 1),
-                        fontSize: 15.6.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ).marginOnly(left: 10.w),
-              Row(
-                children: [
-                  Text(
-                    "to your HealthBuddy Account",
-                    style: TextStyle(
-                      color: const Color.fromRGBO(1, 82, 168, 1),
-                      fontSize: 15.6.sp,
-                    ),
-                  )
-                ],
-              ).marginOnly(left: 10.w),
-              SizedBox(
-                height: 4.5.h,
+              Text(
+                "to your HealthBuddy Account",
+                style: TextStyle(
+                  color: const Color.fromRGBO(1, 82, 168, 1),
+                  fontSize: 15.6.sp,
+                ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -78,22 +65,12 @@ class _LoginMState extends State<LoginM> {
                 ),
                 onPressed: () {},
               ),
-              SizedBox(
-                height: 4.5.h,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Enter your Mobile number",
-                    style: TextStyle(
-                      color: fontblack,
-                      fontSize: 12.4.sp,
-                    ),
-                  )
-                ],
-              ).marginOnly(left: 10.w),
-              SizedBox(
-                height: 1.h,
+              Text(
+                "Enter your Mobile number",
+                style: TextStyle(
+                  color: fontblack,
+                  fontSize: 12.4.sp,
+                ),
               ),
               TextFormField(
                 controller: phone,
@@ -115,50 +92,42 @@ class _LoginMState extends State<LoginM> {
                   name = value;
                   setState(() {});
                 },
-              ).paddingSymmetric(horizontal: 9.w, vertical: 0.25.h),
-              SizedBox(
-                height: 1.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    "We will send One Time Password on this number",
-                    style: TextStyle(
-                      color: fontblack,
-                      fontSize: 9.sp,
-                    ),
-                  ),
-                ],
-              ).marginOnly(left: 10.w),
-              SizedBox(
-                height: 3.h,
+              Text(
+                "We will send One Time Password on this number",
+                style: TextStyle(
+                  color: fontblack,
+                  fontSize: 9.sp,
+                ),
               ),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(81.w, 5.25.h),
-                    backgroundColor: buttonblue,
-                    elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50),
-                      ),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(81.w, 5.25.h),
+                  backgroundColor: buttonblue,
+                  elevation: 0,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
                     ),
                   ),
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      Get.to(OTP(phone: phone.text,));
-                    }
-                  },
-                  child: const Text('Generate OTP')),
-              SizedBox(
-                height: 4.h,
+                ),
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    Get.to(
+                      OTP(
+                        phone: phone.text,
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Generate OTP'),
               ),
               Row(
                 children: [
-                  const Text("Don't Have an Account? "),
+                  const Text("Don't Have an Account?"),
                   TextButton(
                     onPressed: () {
-                      Get.to(const Signup());
+                      Get.to(() => const Signup());
                     },
                     child: const Text(
                       'Sign Up',
@@ -166,11 +135,11 @@ class _LoginMState extends State<LoginM> {
                     ),
                   )
                 ],
-              ).marginOnly(left: 20.w)
-            ]),
+              ),
+            ],
           ),
         ),
       ),
-    ));
+    );
   }
 }
